@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # FSSAI Label Checker
 
 A regulation engine that checks a food product's ingredients, additives and
@@ -40,13 +39,33 @@ label image --(OCR, not yet built)--> raw text
 - **`tests/`** — regression tests. Run these before and after any change
   to the engine or the rulebook.
 
-## Setup
+## Full-Stack Architecture
 
+- **Frontend (`src/`)**: React 19 + Vite single-page application with dark medical-tech design system. Features drag-and-drop label image upload, mobile camera capture, direct text/ingredient input with sample presets, and comprehensive analysis results dashboard.
+- **Backend API (`backend_api.py`)**: FastAPI service connecting PaddleOCR, Legal Metrology compliance engine, and FSSAI regulation engine to HTTP endpoints.
+- **Rules Engine (`regulation/`)**: Programmable rulebook and adapter validating INS additives, contaminants, and statutory warnings.
+
+## Running the Application
+
+### 1. Start the Backend API
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+source .venv311/bin/activate
 pip install -r requirements.txt
+python backend_api.py
+# Running on http://127.0.0.1:8000
 ```
+
+### 2. Start the Frontend Dev Server
+```bash
+npm install
+npm run dev
+# Running on http://127.0.0.1:5173
+```
+
+### API Endpoints
+- `GET  /api/health` — Connectivity check and diagnostics.
+- `POST /api/scan` — Multipart image upload; runs PaddleOCR, Legal Metrology audit, and FSSAI check.
+- `POST /api/analyze-text` — JSON `{ "text": "..." }`; checks ingredients and INS additives.
 
 ## Running tests
 
@@ -75,6 +94,4 @@ should always be traceable to a specific regulation section — see
 `source` on any existing rule for the expected format. Changes to this
 file should go through the same PR review as code changes; see
 CONTRIBUTING.md.
-=======
-# FOOD-LABEL-CHECKER
->>>>>>> origin/main
+

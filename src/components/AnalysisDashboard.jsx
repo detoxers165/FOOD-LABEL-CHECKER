@@ -1,17 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IngredientBadge from './IngredientBadge';
 
-/**
- * AnalysisDashboard Component
- * ===========================
- * Comprehensive breakdown of:
- * 1. Overall Safety Status Banner (SAFE / CAUTION / HIGH RISK)
- * 2. Product Overview Card (product name, brand, count metrics)
- * 3. Additives & Ingredients Table (with INS numbers, categories, limits, & safety status)
- * 4. Regulatory & Health Warnings Callouts
- */
-
 export default function AnalysisDashboard({ data, onReset }) {
+  const [showLmDetails, setShowLmDetails] = useState(false);
+  const [copied, setCopied] = useState(false);
+
   if (!data) return null;
 
   const {
@@ -20,7 +13,9 @@ export default function AnalysisDashboard({ data, onReset }) {
     overallSafety = "CAUTION",
     scanTimestamp = new Date().toISOString(),
     ingredients = [],
-    warnings = []
+    warnings = [],
+    legalMetrology = null,
+    ocrTrace = null
   } = data;
 
   const safeCount = ingredients.filter(i => (i.status || '').toUpperCase() === 'SAFE').length;
@@ -44,7 +39,7 @@ export default function AnalysisDashboard({ data, onReset }) {
       case 'DANGER':
         return {
           title: 'HIGH RISK DETECTED',
-          subtitle: 'One or more food ingredients exceed statutory legal safety limits or are prohibited.',
+          subtitle: 'One or more food ingredients exceed statutory legal safety limits or are prohibited under FSSAI regulations.',
           className: 'safety-banner--danger',
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -67,6 +62,21 @@ export default function AnalysisDashboard({ data, onReset }) {
     }
   };
 
+  const handleCopyReport = () => {
+    const reportText = `LabelGuard FSSAI Audit Report\n` +
+      `Product: ${productName}\n` +
+      `Brand: ${brandName}\n` +
+      `Safety Status: ${overallSafety}\n` +
+      `Evaluated Items: ${ingredients.length}\n` +
+      `Warnings: ${warnings.map(w => `[${w.type}] ${w.message}`).join('\n')}\n` +
+      `Timestamp: ${scanTimestamp}`;
+
+    navigator.clipboard.writeText(reportText).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   const safetyTheme = getSafetyTheme(overallSafety);
 
   return (
@@ -77,13 +87,13 @@ export default function AnalysisDashboard({ data, onReset }) {
           {safetyTheme.icon}
         </div>
         <div className="safety-banner__text">
-          <div className="safety-banner__tag">Overall Safety Audit</div>
+          <div className="safety-banner__tag">FSSAI Regulatory Verdict</div>
           <h2 className="safety-banner__title">{safetyTheme.title}</h2>
           <p className="safety-banner__subtitle">{safetyTheme.subtitle}</p>
         </div>
         <div className="safety-banner__action">
           <button type="button" className="btn btn--outline-light" onClick={onReset}>
-            Scan Another
+            Check Another
           </button>
         </div>
       </section>
@@ -92,13 +102,18 @@ export default function AnalysisDashboard({ data, onReset }) {
       <section className="overview-card">
         <div className="overview-card__header">
           <div>
-            <span className="overview-card__category-hint">Detected Product Identification</span>
+            <span className="overview-card__category-hint">Audited Product Declaration</span>
             <h3 className="overview-card__title">{productName}</h3>
             <span className="overview-card__brand">Manufacturer / Brand: <strong>{brandName}</strong></span>
           </div>
           <div className="overview-card__timestamp">
-            <span>Scanned: {new Date(scanTimestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
+            <span>Audit Time: {new Date(scanTimestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
             <small>{new Date(scanTimestamp).toLocaleDateString()}</small>
+            {ocrTrace && (
+              <span className="ocr-trace-tag">
+                {ocrTrace.regionsCount ? `OCR: ${ocrTrace.regionsCount} regions (${Math.round((ocrTrace.meanConfidence || 0) * 100)}% conf)` : 'Direct Text'}
+              </span>
+            )}
           </div>
         </div>
 
@@ -113,7 +128,7 @@ export default function AnalysisDashboard({ data, onReset }) {
           </div>
           <div className="metric-box metric-box--moderate">
             <span className="metric-box__value">{moderateCount}</span>
-            <span className="metric-box__label">Moderate / Watch</span>
+            <span className="metric-box__label">Moderate / Caution</span>
           </div>
           <div className="metric-box metric-box--danger">
             <span className="metric-box__value">{riskCount}</span>
@@ -122,7 +137,76 @@ export default function AnalysisDashboard({ data, onReset }) {
         </div>
       </section>
 
-      {/* 3. Additives & Ingredients Breakdown Table */}
+      {/* 3. Legal Metrology Compliance Card (if present) */}
+      {legalMetrology && (
+        <section className="lm-section">
+          <div className="lm-card">
+            <div className="lm-card__header">
+              <div className="lm-card__title-group">
+                <span className="lm-card__tag">Legal Metrology (Packaged Commodities) Rules, 2011</span>
+                <h3 className="lm-card__title">Statutory Declarations Compliance</h3>
+              </div>
+
+              <div className="lm-card__score-badge">
+                <span className={`lm-score ${legalMetrology.complianceScorePercent >= 70 ? 'lm-score--pass' : 'lm-score--fail'}`}>
+                  {legalMetrology.complianceScorePercent}%
+                </span>
+                <span className="lm-score__label">
+                  {legalMetrology.overallStatus === 'COMPLIANT' ? 'Compliant' : 'Non-Compliant'}
+                </span>
+              </div>
+            </div>
+
+            <div className="lm-card__summary">
+              <span>Mandatory Checked: <strong>{legalMetrology.mandatoryChecked}</strong></span>
+              <span>Mandatory Failed: <strong className={legalMetrology.mandatoryFailed > 0 ? 'text-danger' : ''}>{legalMetrology.mandatoryFailed}</strong></span>
+              {legalMetrology.needsReviewCount > 0 && (
+                <span>Needs Review: <strong>{legalMetrology.needsReviewCount}</strong></span>
+              )}
+              <button
+                type="button"
+                className="btn btn--text"
+                onClick={() => setShowLmDetails(!showLmDetails)}
+              >
+                {showLmDetails ? '▲ Hide Clause Breakdown' : '▼ View Clause Breakdown'}
+              </button>
+            </div>
+
+            {showLmDetails && legalMetrology.verdicts && (
+              <div className="lm-card__table-wrap">
+                <table className="lm-table">
+                  <thead>
+                    <tr>
+                      <th>Rule / Clause</th>
+                      <th>Requirement</th>
+                      <th>Status</th>
+                      <th>Detected Evidence / Note</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {legalMetrology.verdicts.map((v, i) => (
+                      <tr key={i} className={`lm-row--${(v.status || '').toLowerCase()}`}>
+                        <td className="font-mono">{v.clause || v.ruleId}</td>
+                        <td>{v.title}</td>
+                        <td>
+                          <span className={`lm-badge lm-badge--${(v.status || '').toLowerCase()}`}>
+                            {v.status}
+                          </span>
+                        </td>
+                        <td className="font-mono text-muted">
+                          {v.evidence ? `Found: "${v.evidence}"` : v.note || 'None'}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* 4. Additives & Ingredients Breakdown Table */}
       <section className="table-section">
         <div className="section-header">
           <div>
@@ -173,14 +257,14 @@ export default function AnalysisDashboard({ data, onReset }) {
         </div>
       </section>
 
-      {/* 4. Health & Regulatory Warnings Section */}
+      {/* 5. Health & Regulatory Warnings Section */}
       {warnings && warnings.length > 0 && (
         <section className="warnings-section">
           <h3 className="warnings-section__title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="title-icon">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
             </svg>
-            Health & Regulatory Warnings
+            Health & Regulatory Warnings ({warnings.length})
           </h3>
 
           <div className="warnings-grid">
@@ -196,13 +280,20 @@ export default function AnalysisDashboard({ data, onReset }) {
         </section>
       )}
 
-      {/* Reset / Footer Action */}
+      {/* 6. Dashboard Actions */}
       <div className="dashboard__footer-actions">
+        <button type="button" className="btn btn--outline" onClick={handleCopyReport}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="btn__icon">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v2.25A2.25 2.25 0 0113.5 21.75h-7.5A2.25 2.25 0 013.75 19.5V7.5a2.25 2.25 0 012.25-2.25h2.25m3 0H18a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-4.5" />
+          </svg>
+          {copied ? 'Copied Report!' : 'Copy Summary Report'}
+        </button>
+
         <button type="button" className="btn btn--primary btn--large" onClick={onReset}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="btn__icon">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
           </svg>
-          Scan Another Product Label
+          Check Another Label or Product
         </button>
       </div>
     </div>

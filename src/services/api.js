@@ -1,7 +1,7 @@
 /**
  * API Client Connector — Frontend to Backend Service
  * ====================================================
- * Connects the UI to the Python backend (engine.py / label_pipeline.py / FastAPI / Flask).
+ * Connects the UI to the Python backend (FastAPI / PaddleOCR / FSSAI Engine).
  * Automatically falls back to high-fidelity mock data if the backend is not yet running,
  * allowing teammates to develop frontend and backend concurrently without friction.
  */
@@ -86,7 +86,20 @@ export const MOCK_SCAN_RESPONSE = {
       type: "ALLERGEN",
       message: "Cross-contact advisory: Manufactured in a facility that also processes Peanuts, Soy, and Wheat Gluten."
     }
-  ]
+  ],
+  legalMetrology: {
+    overallStatus: "COMPLIANT",
+    complianceScorePercent: 85.7,
+    mandatoryChecked: 7,
+    mandatoryFailed: 1,
+    needsReviewCount: 0,
+    verdicts: [
+      { ruleId: "LM-1", title: "Manufacturer / packer / importer identified", clause: "Rule 6(1)(a)", status: "PASS", evidence: "NutriSnack Foods Ltd.", note: "" },
+      { ruleId: "LM-2", title: "Net quantity declared in standard units", clause: "Rule 6(1)(c) / Rule 8", status: "PASS", evidence: "150 g", note: "" },
+      { ruleId: "LM-3", title: "Maximum Retail Price declared", clause: "Rule 6(1)(d)", status: "PASS", evidence: "₹ 40.00", note: "" },
+      { ruleId: "LM-4", title: "Consumer care details declared", clause: "Rule 6(1)(f)", status: "PASS", evidence: "care@nutrisnack.in", note: "" }
+    ]
+  }
 };
 
 /**
@@ -100,6 +113,13 @@ const SCAN_PROGRESS_STEPS = [
   { message: "Finalizing safety audit report...", duration: 500 }
 ];
 
+const TEXT_PROGRESS_STEPS = [
+  { message: "Parsing ingredient declarations and text...", duration: 400 },
+  { message: "Extracting INS numbers and additives...", duration: 600 },
+  { message: "Querying FSSAI regulation rulebook...", duration: 600 },
+  { message: "Generating safety verdict report...", duration: 400 }
+];
+
 /**
  * Check backend service connectivity.
  * @returns {Promise<{ online: boolean, message: string }>}
@@ -107,7 +127,7 @@ const SCAN_PROGRESS_STEPS = [
 export async function checkBackendHealth() {
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2000);
+    const timeoutId = setTimeout(() => controller.abort(), 2500);
     const response = await fetch(`${API_BASE_URL}/api/health`, {
       method: 'GET',
       signal: controller.signal
@@ -135,23 +155,21 @@ export async function checkBackendHealth() {
  * @returns {Promise<Object>} Analyzed product schema
  */
 export async function scanLabelImage(imageFile, { onProgress, forceMock = false } = {}) {
-  // If forceMock is requested or backend is not active, run simulated progress
   if (forceMock) {
-    return runSimulatedAnalysis(onProgress);
+    return runSimulatedProgress(SCAN_PROGRESS_STEPS, onProgress, MOCK_SCAN_RESPONSE);
   }
 
   try {
-    // Attempt real backend call
     const formData = new FormData();
     formData.append('file', imageFile);
-    formData.append('image', imageFile); // support both parameter names commonly used in Python backends
+    formData.append('image', imageFile);
 
     if (onProgress) {
-      onProgress({ step: 1, totalSteps: 3, message: "Sending image to backend OCR...", progress: 35 });
+      onProgress({ step: 1, totalSteps: 4, message: "Uploading image to OCR engine...", progress: 20 });
     }
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout for OCR
 
     const response = await fetch(`${API_BASE_URL}/api/scan`, {
       method: 'POST',
@@ -165,7 +183,7 @@ export async function scanLabelImage(imageFile, { onProgress, forceMock = false 
     }
 
     if (onProgress) {
-      onProgress({ step: 3, totalSteps: 3, message: "Parsing backend safety response...", progress: 100 });
+      onProgress({ step: 4, totalSteps: 4, message: "Parsing compliance report...", progress: 100 });
     }
 
     const data = await response.json();
@@ -174,31 +192,94 @@ export async function scanLabelImage(imageFile, { onProgress, forceMock = false 
       scanTimestamp: data.scanTimestamp || new Date().toISOString()
     };
   } catch (error) {
-    console.warn("Backend API request failed or not ready. Falling back to simulated analysis pipeline.", error);
-    // Graceful fallback to rich simulated analysis
-    return runSimulatedAnalysis(onProgress);
+    console.warn("Backend API request failed or timed out. Falling back to simulated analysis pipeline.", error);
+    return runSimulatedProgress(SCAN_PROGRESS_STEPS, onProgress, MOCK_SCAN_RESPONSE);
   }
 }
 
 /**
- * Runs animated simulated OCR and safety checking pipeline
+ * Directly analyzes raw label or ingredient text against FSSAI regulations.
+ * 
+ * @param {Object} payload - { text, productName, brandName, category }
+ * @param {Object} options - Additional options
+ * @param {Function} [options.onProgress] - Callback function
+ * @param {boolean} [options.forceMock] - Force mock mode
+ * @returns {Promise<Object>} Analyzed product schema
  */
-async function runSimulatedAnalysis(onProgress) {
-  for (let i = 0; i < SCAN_PROGRESS_STEPS.length; i++) {
-    const step = SCAN_PROGRESS_STEPS[i];
+export async function analyzeLabelText({ text, productName, brandName, category }, { onProgress, forceMock = false } = {}) {
+  if (forceMock) {
+    return runSimulatedProgress(TEXT_PROGRESS_STEPS, onProgress, {
+      ...MOCK_SCAN_RESPONSE,
+      productName: productName || "Direct Text Product",
+      brandName: brandName || "Entered Text Analysis"
+    });
+  }
+
+  try {
+    if (onProgress) {
+      onProgress({ step: 1, totalSteps: 3, message: "Submitting ingredient text...", progress: 30 });
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+    const response = await fetch(`${API_BASE_URL}/api/analyze-text`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text,
+        productName: productName || "Food Product",
+        brandName: brandName || "Ingredient Text Submission",
+        category: category || null
+      }),
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`Backend returned status ${response.status}`);
+    }
+
+    if (onProgress) {
+      onProgress({ step: 3, totalSteps: 3, message: "Formatting regulatory audit...", progress: 100 });
+    }
+
+    const data = await response.json();
+    return {
+      ...data,
+      scanTimestamp: data.scanTimestamp || new Date().toISOString()
+    };
+  } catch (error) {
+    console.warn("Text analysis request failed. Falling back to simulated analysis.", error);
+    return runSimulatedProgress(TEXT_PROGRESS_STEPS, onProgress, {
+      ...MOCK_SCAN_RESPONSE,
+      productName: productName || "Food Product",
+      brandName: brandName || "Simulated Text Evaluation"
+    });
+  }
+}
+
+/**
+ * Runs animated simulated steps
+ */
+async function runSimulatedProgress(steps, onProgress, finalData) {
+  for (let i = 0; i < steps.length; i++) {
+    const step = steps[i];
     if (onProgress) {
       onProgress({
         step: i + 1,
-        totalSteps: SCAN_PROGRESS_STEPS.length,
+        totalSteps: steps.length,
         message: step.message,
-        progress: Math.round(((i + 1) / SCAN_PROGRESS_STEPS.length) * 100)
+        progress: Math.round(((i + 1) / steps.length) * 100)
       });
     }
     await new Promise((res) => setTimeout(res, step.duration));
   }
 
   return {
-    ...MOCK_SCAN_RESPONSE,
+    ...finalData,
     scanTimestamp: new Date().toISOString()
   };
 }
