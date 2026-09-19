@@ -1,13 +1,13 @@
 from pathlib import Path
 
-from fssai_regulation_engine import (
+from regulation.engine import (
     RegulationEngine,
     DECISION_COMPLIANT,
     DECISION_CONDITIONAL,
     DECISION_NON_COMPLIANT,
 )
 
-RULES = Path(__file__).parent.parent / "fssai_regulatory_programmable_rules.json"
+RULES = Path(__file__).parent.parent / "regulation" / "rules.json"
 
 
 def _finding(result, rule_id):

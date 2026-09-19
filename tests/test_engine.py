@@ -2,7 +2,7 @@ import json
 import tempfile
 from pathlib import Path
 
-from fssai_regulation_engine import (
+from regulation.engine import (
     RegulationEngine,
     DECISION_COLUMN,
     DECISION_NON_COMPLIANT,
@@ -10,7 +10,7 @@ from fssai_regulation_engine import (
 )
 
 
-RULES = Path(__file__).parent.parent / "fssai_regulatory_programmable_rules.json"
+RULES = Path(__file__).parent.parent / "regulation" / "rules.json"
 
 
 def test_identity_by_ins():
@@ -69,7 +69,7 @@ def test_current_appendix_a_tables_are_deferred():
 
 
 def test_unit_conversion():
-    from fssai_regulation_engine import convert_amount
+    from regulation.engine import convert_amount
     assert convert_amount(1, "g/kg", "mg/kg") == 1000
     assert convert_amount(1000, "mg/kg", "g/kg") == 1
     assert convert_amount(1, "%", "mg/kg") == 10000
