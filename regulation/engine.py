@@ -9,7 +9,7 @@ review states rather than guessed.
 Usage:
     from fssai_regulation_engine import RegulationEngine
 
-    engine = RegulationEngine("fssai_regulatory_programmable_rules.json")
+    engine = RegulationEngine("regulation/rules.json")
     result = engine.check({
         "product": {
             "declared_name": "Example product",
@@ -744,7 +744,7 @@ if __name__ == "__main__":
     parser.add_argument("input_json", help="JSON file containing one product payload")
     parser.add_argument(
         "--rules",
-        default="fssai_regulatory_programmable_rules.json",
+        default="regulation/rules.json",
         help="Programmable rules JSON",
     )
     args = parser.parse_args()

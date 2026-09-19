@@ -146,20 +146,36 @@ def build_additives(
 
 # ---------------------------------------------------------------------------
 # Category resolution
-# ---------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+
+FSSAI_CATEGORY_ALIASES = {
+    "15.1": "SNACKS_SAVOURIES_15_1",
+    "PROPRIETARY FOOD - NAMKEEN (MIXTURES) - 15.1": "SNACKS_SAVOURIES_15_1",
+}
+
+
+def _normalize_category_text(value: str) -> str:
+    """Normalize category wording for deterministic alias matching."""
+    return re.sub(r"\s+", " ", value.strip()).upper()
+
 
 def resolve_category(
     product_name: str,
-    category_hint: Optional[str] = None,
-) -> Optional[str]:
+    category_hint: Optional[str] = None,) -> Optional[str]:
     """
-    Return an already-resolved category hint.
+    Resolve an OCR/label category only when an explicit validated
+    FSSAI category alias exists.
 
-    No category is invented here. A future category resolver/classifier
-    can be plugged in without changing the regulation engine.
+    Unknown categories remain unresolved.
     """
-    if category_hint:
-        return category_hint
+    if not category_hint:
+        return None
+
+    normalized = _normalize_category_text(category_hint)
+
+    # Exact canonical category already supplied.
+    if normalized in FSSAI_CATEGORY_ALIASES:
+        return FSSAI_CATEGORY_ALIASES[normalized]
 
     return None
 
@@ -377,7 +393,7 @@ def build_payload_from_ocr(
     # treated as an executable normalized FSSAI category.
     resolved_category = resolve_category(
         product_name or "",
-        category_hint,
+        category_hint or ocr_category,
     )
 
     additives = _extract_ins_additives_with_evidence(
