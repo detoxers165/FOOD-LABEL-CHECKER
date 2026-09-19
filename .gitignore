@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+.DS_Store
+.vscode/
+.idea/
+
+# Don't commit large source PDFs of the gazette notifications here --
+# link to the official source in SOURCES.md instead. If the team wants
+# them versioned for provenance, use Git LFS rather than plain git.
+*.pdf

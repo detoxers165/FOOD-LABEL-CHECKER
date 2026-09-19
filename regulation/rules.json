@@ -1,0 +1,2917 @@
+{
+  "engine": {
+    "name": "FSSAI Programmable Rules Engine",
+    "version": "0.3.0",
+    "notes": "Illustrative rule set for engineering/testing the RegulationEngine. INS identities are drawn from the standard Codex/FSSAI INS numbering system, but the specific category scopes and numeric limits below are PLACEHOLDER values for building and testing the pipeline. Verify every numeric limit and category scope against the current FSSAI Food Safety and Standards (Food Products Standards and Food Additives) Regulations, 2011 gazette + amendments before using this file for real compliance decisions."
+  },
+  "rules": [
+    {
+      "rule_id": "IDENTITY-INS-100i",
+      "rule_type": "IDENTITY",
+      "when": {
+        "field": "additive.ins",
+        "value": "100(i)"
+      },
+      "then": {
+        "set": {
+          "additive.normalized_name": "Curcumin",
+          "additive.technical_function": "Colour"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A",
+        "ins": "100(i)"
+      }
+    },
+    {
+      "rule_id": "IDENTITY-INS-102",
+      "rule_type": "IDENTITY",
+      "when": {
+        "field": "additive.ins",
+        "value": "102"
+      },
+      "then": {
+        "set": {
+          "additive.normalized_name": "Tartrazine",
+          "additive.technical_function": "Colour"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A",
+        "ins": "102"
+      }
+    },
+    {
+      "rule_id": "IDENTITY-INS-211",
+      "rule_type": "IDENTITY",
+      "when": {
+        "field": "additive.ins",
+        "value": "211"
+      },
+      "then": {
+        "set": {
+          "additive.normalized_name": "Sodium Benzoate",
+          "additive.technical_function": "Preservative"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A",
+        "ins": "211"
+      }
+    },
+    {
+      "rule_id": "IDENTITY-INS-330",
+      "rule_type": "IDENTITY",
+      "when": {
+        "field": "additive.ins",
+        "value": "330"
+      },
+      "then": {
+        "set": {
+          "additive.normalized_name": "Citric Acid",
+          "additive.technical_function": "Acidity Regulator"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A",
+        "ins": "330"
+      }
+    },
+    {
+      "rule_id": "IDENTITY-INS-951",
+      "rule_type": "IDENTITY",
+      "when": {
+        "field": "additive.ins",
+        "value": "951"
+      },
+      "then": {
+        "set": {
+          "additive.normalized_name": "Aspartame",
+          "additive.technical_function": "Sweetener"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A",
+        "ins": "951"
+      }
+    },
+    {
+      "rule_id": "IDENTITY-INS-924",
+      "rule_type": "IDENTITY",
+      "when": {
+        "field": "additive.ins",
+        "value": "924"
+      },
+      "then": {
+        "set": {
+          "additive.normalized_name": "Potassium Bromate",
+          "additive.technical_function": "Flour Treatment Agent"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A",
+        "ins": "924"
+      }
+    },
+    {
+      "rule_id": "PROHIBITION-INS-924-ALL-CATEGORIES",
+      "rule_type": "ADDITIVE_PROHIBITION",
+      "when": {
+        "field": "additive.ins",
+        "operator": "EQUALS",
+        "value": "924"
+      },
+      "then": {
+        "decision": "NON_COMPLIANT",
+        "message": "Potassium Bromate (INS 924) is banned as a flour treatment agent in India."
+      },
+      "source": {
+        "regulation": "FSSAI order withdrawing use of Potassium Bromate as a food additive",
+        "gazette_ref": "F.No. Stds/O&F/Notification/FSSAI-2016 (verify citation before production use)"
+      }
+    },
+    {
+      "rule_id": "PROHIBITION-RHODAMINE-B",
+      "rule_type": "ADDITIVE_PROHIBITION",
+      "when": {
+        "field": "additive.declared_name",
+        "operator": "IN",
+        "value": [
+          "rhodamine b",
+          "rhodamine-b"
+        ]
+      },
+      "then": {
+        "decision": "NON_COMPLIANT",
+        "message": "Rhodamine B is not a permitted food colour under FSSAI regulations and its use has been the subject of specific enforcement action."
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A"
+      }
+    },
+    {
+      "rule_id": "PERMISSION-INS-211-CARBONATED-BEVERAGES",
+      "rule_type": "ADDITIVE_PERMISSION",
+      "when": {
+        "all": [
+          {
+            "field": "additive.ins",
+            "operator": "EQUALS",
+            "value": "211"
+          },
+          {
+            "field": "food.category",
+            "operator": "EQUALS",
+            "value": "CARBONATED_BEVERAGES"
+          }
+        ]
+      },
+      "then": {
+        "decision": "CONDITIONAL",
+        "maximum_level": {
+          "value": 200,
+          "unit": "mg/kg",
+          "operator": "LTE"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A, Table 4 (placeholder scope/limit — verify against current gazette)"
+      }
+    },
+    {
+      "rule_id": "PERMISSION-INS-330-GENERAL-PROCESSED-FOODS",
+      "rule_type": "ADDITIVE_PERMISSION",
+      "when": {
+        "field": "additive.ins",
+        "operator": "EQUALS",
+        "value": "330"
+      },
+      "then": {
+        "decision": "COMPLIANT"
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A — GMP-level use, no numeric maximum (placeholder — verify scope)"
+      }
+    },
+    {
+      "rule_id": "PERMISSION-INS-951-CARBONATED-BEVERAGES",
+      "rule_type": "ADDITIVE_PERMISSION",
+      "when": {
+        "all": [
+          {
+            "field": "additive.ins",
+            "operator": "EQUALS",
+            "value": "951"
+          },
+          {
+            "field": "food.category",
+            "operator": "EQUALS",
+            "value": "CARBONATED_BEVERAGES"
+          }
+        ]
+      },
+      "then": {
+        "decision": "CONDITIONAL",
+        "maximum_level": {
+          "value": 700,
+          "unit": "mg/kg",
+          "operator": "LTE"
+        }
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A, Table 4 (placeholder scope/limit — verify against current gazette)"
+      }
+    },
+    {
+      "rule_id": "CANDIDATE-SODIUM-FUMARATE-BREAD",
+      "rule_type": "ADDITIVE_PERMISSION_CANDIDATE",
+      "when": {
+        "all": [
+          {
+            "field": "additive.declared_name",
+            "operator": "EQUALS",
+            "value": "Sodium fumarate"
+          },
+          {
+            "field": "food.category",
+            "operator": "EQUALS",
+            "value": "BREAD"
+          }
+        ]
+      },
+      "then": {
+        "note": "Row extracted from Appendix A bread/bakery preservative table; category-specific column not yet validated."
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A, Bread/Bakery table (column validation pending)"
+      }
+    },
+    {
+      "rule_id": "TABLE-APPENDIX-A-GENERAL-COVERAGE",
+      "rule_type": "ADDITIVE_TABLE",
+      "when": {},
+      "then": {
+        "note": "Appendix A category tables are only partially digitized into executable ADDITIVE_PERMISSION rules; most rows remain candidate rows pending column validation."
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "appendix": "Appendix A (coverage caveat)"
+      }
+    },
+    {
+      "rule_id": "STANDARD-TONED-MILK-FAT",
+      "rule_type": "PRODUCT_STANDARD_NUMERIC",
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TONED_MILK"
+      },
+      "check": {
+        "field": "milk fat",
+        "operator": "GTE",
+        "value": 3.0,
+        "unit": "%"
+      },
+      "source": {
+        "regulation": "FSS (Food Products Standards and Food Additives) Regulations, 2011",
+        "standard": "Toned Milk — minimum milk fat (placeholder value — verify against current standard)"
+      }
+    },
+    {
+      "rule_id": "STANDARD-CATEGORY-RESOLUTION-PENDING",
+      "rule_type": "PRODUCT_STANDARD_NUMERIC",
+      "when": {
+        "field": "food.category",
+        "operator": "REQUIRES_CATEGORY_RESOLUTION"
+      },
+      "check": {},
+      "source": {
+        "regulation": "Category resolution not yet wired to product-standard tables."
+      }
+    },
+    {
+      "rule_id": "LEAD-CONCENTRATED-SOFT-DRINKS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 0.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Concentrated soft drinks (excl. concentrates used in mfg of soft drinks)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CONCENTRATED_SOFT_DRINKS"
+      }
+    },
+    {
+      "rule_id": "LEAD-FRUIT-VEG-JUICE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 1.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Fruit and vegetable juice incl. tomato juice, excl. lime/lemon juice"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_VEGETABLE_JUICE"
+      }
+    },
+    {
+      "rule_id": "LEAD-SOFT-DRINK-MFG-CONCENTRATES-LIME-LEMON",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 2.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Concentrates used in mfg of soft drinks, lime juice and lemon juice"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOFT_DRINK_MFG_CONCENTRATES_LIME_LEMON_JUICE"
+      }
+    },
+    {
+      "rule_id": "LEAD-BAKING-POWDER",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 10.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Baking powder"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "BAKING_POWDER"
+      }
+    },
+    {
+      "rule_id": "LEAD-EDIBLE-OILS-FATS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 0.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Edible oils and fats"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "EDIBLE_OILS_FATS"
+      }
+    },
+    {
+      "rule_id": "LEAD-INFANT-MILK-SUBSTITUTE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 0.2,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Infant milk substitute and infant foods"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "INFANT_MILK_SUBSTITUTE_INFANT_FOOD"
+      }
+    },
+    {
+      "rule_id": "LEAD-TURMERIC",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 10.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Turmeric whole and powder"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TURMERIC"
+      }
+    },
+    {
+      "rule_id": "LEAD-DEXTROSE-LOW-ASH-SUGAR",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 0.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Anhydrous dextrose/dextrose monohydrate, refined white sugar (sulphated ash <=0.03%)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "DEXTROSE_AND_LOW_ASH_REFINED_SUGAR"
+      }
+    },
+    {
+      "rule_id": "LEAD-ICE-CREAM",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 1.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Ice-cream, iced lollies and similar frozen confections"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "ICE_CREAM_FROZEN_CONFECTIONS"
+      }
+    },
+    {
+      "rule_id": "LEAD-CANNED-FISH-MEAT-GELATIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Canned fish, canned meats, edible gelatin, meat extracts, hydrolysed protein, dried/dehydrated vegetables (excl. onions)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CANNED_FISH_MEAT_GELATIN_EXTRACTS_DRIED_VEG"
+      }
+    },
+    {
+      "rule_id": "LEAD-SUGAR-HIGH-ASH-COLOURED",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Sugar, sugar syrup, invert sugar, direct-consumption coloured sugars (sulphated ash > 1.0%)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SUGAR_HIGH_ASH_COLOURED"
+      }
+    },
+    {
+      "rule_id": "LEAD-RAW-SUGAR",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Raw sugars (except sold direct or for mfg other than refining)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "RAW_SUGAR"
+      }
+    },
+    {
+      "rule_id": "LEAD-MOLASSES-CARAMEL-GLUCOSE-STARCH",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Edible molasses, caramel (liquid/solid), glucose and starch conversion products (ash > 1.0%)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "MOLASSES_CARAMEL_GLUCOSE_STARCH_HIGH_ASH"
+      }
+    },
+    {
+      "rule_id": "LEAD-COCOA-POWDER",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Cocoa powder (on dry fat-free substance)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "COCOA_POWDER"
+      }
+    },
+    {
+      "rule_id": "LEAD-YEAST-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Yeast and yeast products (on dry matter)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "YEAST_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "LEAD-TEA-DEHYDRATED-ONION-HERBS-SEAWEED",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 10.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Tea, dehydrated onions, dried herbs/spices flavourings, alginic acid, alginates, agar, carrageenan and similar seaweed products (dry matter)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TEA_DEHYDRATED_ONION_DRIED_HERBS_SPICE_SEAWEED_DERIVATIVES"
+      }
+    },
+    {
+      "rule_id": "LEAD-LIQUID-PECTIN-UNSPECIFIED-CHEMICALS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 10.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Liquid pectin; chemicals not otherwise specified used as ingredients/processing aids"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "LIQUID_PECTIN_UNSPECIFIED_CHEMICALS"
+      }
+    },
+    {
+      "rule_id": "LEAD-FOOD-COLOURING-NON-CARAMEL",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 10.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Food colouring other than caramel (dry colouring matter)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FOOD_COLOURING_NON_CARAMEL"
+      }
+    },
+    {
+      "rule_id": "LEAD-SOLID-PECTIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 50.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Solid pectin"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOLID_PECTIN"
+      }
+    },
+    {
+      "rule_id": "LEAD-HARD-BOILED-SUGAR-CONFECTIONERY",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 2.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Hard boiled sugar confectionery"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "HARD_BOILED_SUGAR_CONFECTIONERY"
+      }
+    },
+    {
+      "rule_id": "LEAD-IRON-FORTIFIED-SALT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 2.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Iron fortified common salt"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "IRON_FORTIFIED_SALT"
+      }
+    },
+    {
+      "rule_id": "LEAD-PROCESSED-CANNED-MEAT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 2.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Corned beef, luncheon meat, cooked ham, chopped meat, canned chicken, canned mutton/goat meat and related products"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "PROCESSED_CANNED_MEAT_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "LEAD-VINEGAR",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Brewed vinegar and synthetic vinegar (Nil)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "VINEGAR_BREWED_SYNTHETIC"
+      }
+    },
+    {
+      "rule_id": "LEAD-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "lead",
+        "operator": "LTE",
+        "value": 2.53,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 1 (Lead)",
+        "note": "Foods not specified"
+      }
+    },
+    {
+      "rule_id": "COPPER-SOFT-DRINKS-EXCL-CONCENTRATE-CARBONATED",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 7.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Soft drinks excluding concentrates and carbonated water"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOFT_DRINKS_EXCL_CONCENTRATE_CARBONATED"
+      }
+    },
+    {
+      "rule_id": "COPPER-CARBONATED-WATER",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 1.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Carbonated water"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CARBONATED_WATER"
+      }
+    },
+    {
+      "rule_id": "COPPER-TODDY",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Toddy"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TODDY"
+      }
+    },
+    {
+      "rule_id": "COPPER-SOFT-DRINK-CONCENTRATES",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 20.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Concentrates for soft drinks"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOFT_DRINK_CONCENTRATES"
+      }
+    },
+    {
+      "rule_id": "COPPER-CHICORY-COFFEE-FLAVOURINGS-PECTIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 30.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Chicory dried/roasted, coffee beans, flavourings/pectin liquid"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CHICORY_COFFEE_BEANS_FLAVOURINGS_LIQUID_PECTIN"
+      }
+    },
+    {
+      "rule_id": "COPPER-COLOURING-MATTER",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 30.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Colouring matter (on dry colouring matter)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "COLOURING_MATTER"
+      }
+    },
+    {
+      "rule_id": "COPPER-EDIBLE-GELATIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 30.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Edible gelatin"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "EDIBLE_GELATIN"
+      }
+    },
+    {
+      "rule_id": "COPPER-TOMATO-KETCHUP",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 50.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Tomato ketchup (on dried total solids)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TOMATO_KETCHUP"
+      }
+    },
+    {
+      "rule_id": "COPPER-YEAST-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 60.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Yeast and yeast products (on dry matter)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "YEAST_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "COPPER-COCOA-POWDER",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 70.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Cocoa powder (on fat-free substance)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "COCOA_POWDER"
+      }
+    },
+    {
+      "rule_id": "COPPER-TOMATO-PUREE-PASTE-POWDER-JUICE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 100.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Tomato puree, paste, powder, juice and cocktails (on dried tomato solid)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TOMATO_PUREE_PASTE_POWDER_JUICE_COCKTAIL"
+      }
+    },
+    {
+      "rule_id": "COPPER-TEA",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 150.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Tea"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TEA"
+      }
+    },
+    {
+      "rule_id": "COPPER-SOLID-PECTIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 300.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Pectin, solid"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOLID_PECTIN"
+      }
+    },
+    {
+      "rule_id": "COPPER-HARD-BOILED-SUGAR-CONFECTIONERY",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Hard boiled sugar confectionery"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "HARD_BOILED_SUGAR_CONFECTIONERY"
+      }
+    },
+    {
+      "rule_id": "COPPER-IRON-FORTIFIED-SALT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 2.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Iron fortified common salt"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "IRON_FORTIFIED_SALT"
+      }
+    },
+    {
+      "rule_id": "COPPER-TURMERIC",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Turmeric whole and powder"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TURMERIC"
+      }
+    },
+    {
+      "rule_id": "COPPER-FRUIT-JUICE-ORANGE-GRAPE-APPLE-TOMATO-PINEAPPLE-LEMON",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Juice of orange, grape, apple, tomato, pineapple and lemon"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_JUICE_ORANGE_GRAPE_APPLE_TOMATO_PINEAPPLE_LEMON"
+      }
+    },
+    {
+      "rule_id": "COPPER-FRUIT-PULP-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Pulp and pulp products of any fruit"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_PULP_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "COPPER-INFANT-MILK-SUBSTITUTE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 15.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Infant milk substitute and infant foods (max 15.0, but not less than 2.8)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "INFANT_MILK_SUBSTITUTE_INFANT_FOOD"
+      }
+    },
+    {
+      "rule_id": "COPPER-VINEGAR",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Brewed vinegar and synthetic vinegar (Nil)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "VINEGAR_BREWED_SYNTHETIC"
+      }
+    },
+    {
+      "rule_id": "COPPER-CARAMEL",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 20.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Caramel"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CARAMEL"
+      }
+    },
+    {
+      "rule_id": "COPPER-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "copper",
+        "operator": "LTE",
+        "value": 30.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 2 (Copper)",
+        "note": "Foods not specified"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-MILK",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Milk"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "MILK"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-SOFT-DRINK-DILUTION-EXCL-CARBONATED",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Soft drink intended for consumption after dilution, except carbonated water"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOFT_DRINK_DILUTION_EXCL_CARBONATED"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-CARBONATED-WATER",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.25,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Carbonated water"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CARBONATED_WATER"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-INFANT-MILK-SUBSTITUTE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.05,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Infant milk substitute and infant foods"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "INFANT_MILK_SUBSTITUTE_INFANT_FOOD"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-TURMERIC",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Turmeric whole and powder"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TURMERIC"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-FRUIT-JUICE-ORANGE-GRAPE-APPLE-TOMATO-PINEAPPLE-LEMON",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.2,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Juice of orange, grape, apple, tomato, pineapple and lemon"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_JUICE_ORANGE_GRAPE_APPLE_TOMATO_PINEAPPLE_LEMON"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-FRUIT-PULP-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.2,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Pulp and pulp products of any fruit"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_PULP_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-PRESERVATIVES-ANTIOXIDANTS-EMULSIFIERS-STABILISERS-SYNTHETIC-COLOURS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 3.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Preservatives, anti-oxidants, emulsifying and stabilising agents and synthetic food colours (dry matter) -- limit on the additive itself, not the finished food"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "PRESERVATIVES_ANTIOXIDANTS_EMULSIFIERS_STABILISERS_SYNTHETIC_COLOURS"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-ICE-CREAM",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Ice-cream, iced lollies and similar frozen confections"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "ICE_CREAM_FROZEN_CONFECTIONS"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-DEHYDRATED-ONION-GELATIN-PECTIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 2.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Dehydrated onions, edible gelatin, liquid pectin"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "DEHYDRATED_ONION_GELATIN_LIQUID_PECTIN"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-CHICORY-DRIED-ROASTED",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 4.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Chicory, dried or roasted"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CHICORY_DRIED_ROASTED"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-DRIED-HERBS-FININGS-SOLID-PECTIN-SPICES",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Dried herbs, finings and clearing agents, solid pectin (all grades), spices"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "DRIED_HERBS_FININGS_SOLID_PECTIN_SPICES"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-FOOD-COLOURING-NON-SYNTHETIC",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Food colouring other than synthetic colouring (dry colouring matter)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FOOD_COLOURING_NON_SYNTHETIC"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-HARD-BOILED-SUGAR-CONFECTIONERY",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 1.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Hard boiled sugar confectionery"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "HARD_BOILED_SUGAR_CONFECTIONERY"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-IRON-FORTIFIED-SALT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 1.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Iron fortified common salt"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "IRON_FORTIFIED_SALT"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-VINEGAR",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 0.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Brewed vinegar and synthetic vinegar"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "VINEGAR_BREWED_SYNTHETIC"
+      }
+    },
+    {
+      "rule_id": "ARSENIC-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "arsenic",
+        "operator": "LTE",
+        "value": 1.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 3 (Arsenic)",
+        "note": "Foods not specified"
+      }
+    },
+    {
+      "rule_id": "TIN-PROCESSED-CANNED-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 250.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Processed and canned products"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "PROCESSED_CANNED_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "TIN-HARD-BOILED-SUGAR-CONFECTIONERY",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Hard boiled sugar confectionery"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "HARD_BOILED_SUGAR_CONFECTIONERY"
+      }
+    },
+    {
+      "rule_id": "TIN-JAM-JELLY-MARMALADE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 250.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Jam, jellies and marmalade"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "JAM_JELLY_MARMALADE"
+      }
+    },
+    {
+      "rule_id": "TIN-FRUIT-JUICE-ORANGE-APPLE-TOMATO-PINEAPPLE-LEMON",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 250.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Juice of orange, apple, tomato, pineapple and lemon"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_JUICE_ORANGE_APPLE_TOMATO_PINEAPPLE_LEMON"
+      }
+    },
+    {
+      "rule_id": "TIN-FRUIT-PULP-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 250.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Pulp and pulp products of any fruit"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_PULP_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "TIN-INFANT-MILK-SUBSTITUTE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Infant milk substitute and infant foods"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "INFANT_MILK_SUBSTITUTE_INFANT_FOOD"
+      }
+    },
+    {
+      "rule_id": "TIN-TURMERIC",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Turmeric whole and powder (Nil)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TURMERIC"
+      }
+    },
+    {
+      "rule_id": "TIN-PROCESSED-CANNED-MEAT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 250.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Corned beef, luncheon meat, cooked ham, chopped meat, canned chicken, canned mutton and goat meat"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "PROCESSED_CANNED_MEAT_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "TIN-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tin",
+        "operator": "LTE",
+        "value": 250.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 4 (Tin)",
+        "note": "Foods not specified"
+      }
+    },
+    {
+      "rule_id": "ZINC-READY-TO-DRINK-BEVERAGES",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Ready-to-drink beverages"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "READY_TO_DRINK_BEVERAGES"
+      }
+    },
+    {
+      "rule_id": "ZINC-FRUIT-JUICE-ORANGE-GRAPE-TOMATO-PINEAPPLE-LEMON",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Juice of orange, grape, tomato, pineapple and lemon"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_JUICE_ORANGE_GRAPE_TOMATO_PINEAPPLE_LEMON"
+      }
+    },
+    {
+      "rule_id": "ZINC-FRUIT-PULP-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Pulp and pulp products of any fruit"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_PULP_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "ZINC-INFANT-MILK-SUBSTITUTE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 50.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Infant milk substitute and infant foods (max 50.0, but not less than 25.0)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "INFANT_MILK_SUBSTITUTE_INFANT_FOOD"
+      }
+    },
+    {
+      "rule_id": "ZINC-EDIBLE-GELATIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 100.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Edible gelatin"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "EDIBLE_GELATIN"
+      }
+    },
+    {
+      "rule_id": "ZINC-TURMERIC",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 25.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Turmeric whole and powder"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TURMERIC"
+      }
+    },
+    {
+      "rule_id": "ZINC-FRUIT-VEG-PRODUCTS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 50.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Fruit and vegetable products"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FRUIT_VEGETABLE_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "ZINC-HARD-BOILED-SUGAR-CONFECTIONERY",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Hard boiled sugar confectionery"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "HARD_BOILED_SUGAR_CONFECTIONERY"
+      }
+    },
+    {
+      "rule_id": "ZINC-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "zinc",
+        "operator": "LTE",
+        "value": 50.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 5 (Zinc)",
+        "note": "Foods not specified"
+      }
+    },
+    {
+      "rule_id": "CADMIUM-INFANT-MILK-SUBSTITUTE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "cadmium",
+        "operator": "LTE",
+        "value": 0.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 6 (Cadmium)",
+        "note": "Infant milk substitute and infant foods"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "INFANT_MILK_SUBSTITUTE_INFANT_FOOD"
+      }
+    },
+    {
+      "rule_id": "CADMIUM-TURMERIC",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "cadmium",
+        "operator": "LTE",
+        "value": 0.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 6 (Cadmium)",
+        "note": "Turmeric whole and powder"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "TURMERIC"
+      }
+    },
+    {
+      "rule_id": "CADMIUM-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "cadmium",
+        "operator": "LTE",
+        "value": 1.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 6 (Cadmium)",
+        "note": "Other foods"
+      }
+    },
+    {
+      "rule_id": "MERCURY-FISH",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "mercury",
+        "operator": "LTE",
+        "value": 0.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 7 (Mercury)",
+        "note": "Fish"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "FISH"
+      }
+    },
+    {
+      "rule_id": "MERCURY-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "mercury",
+        "operator": "LTE",
+        "value": 1.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 7 (Mercury)",
+        "note": "Other foods"
+      }
+    },
+    {
+      "rule_id": "METHYL-MERCURY-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "methyl mercury",
+        "operator": "LTE",
+        "value": 0.25,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 8 (Methyl Mercury)",
+        "note": "All foods (calculated as the element)"
+      }
+    },
+    {
+      "rule_id": "CHROMIUM-REFINED-SUGAR",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "chromium",
+        "operator": "LTE",
+        "value": 20,
+        "unit": "ppb"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 9 (Chromium)",
+        "note": "Refined sugar"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "REFINED_SUGAR"
+      }
+    },
+    {
+      "rule_id": "NICKEL-HYDROGENATED-INTERESTERIFIED-OILS-FATS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "nickel",
+        "operator": "LTE",
+        "value": 1.5,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.1.1 Table item 10 (Nickel)",
+        "note": "All hydrogenated, partially hydrogenated, interesterified vegetable oils and fats (vanaspati, table margarine, bakery/industrial margarine, bakery shortening, fat spread, partially hydrogenated soyabean oil)"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "HYDROGENATED_INTERESTERIFIED_VEGETABLE_OILS_FATS"
+      }
+    },
+    {
+      "rule_id": "AFLATOXIN-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "aflatoxin",
+        "operator": "LTE",
+        "value": 30,
+        "unit": "ug/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(1) item 1",
+        "note": "All articles of food"
+      }
+    },
+    {
+      "rule_id": "AFLATOXIN-M1-MILK",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "aflatoxin m1",
+        "operator": "LTE",
+        "value": 0.5,
+        "unit": "ug/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(1) item 2",
+        "note": "Milk"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "MILK"
+      }
+    },
+    {
+      "rule_id": "PATULIN-APPLE-JUICE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "patulin",
+        "operator": "LTE",
+        "value": 50,
+        "unit": "ug/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(1) item 3",
+        "note": "Apple juice and apple juice ingredients in other beverages"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "APPLE_JUICE_AND_APPLE_JUICE_INGREDIENT_BEVERAGES"
+      }
+    },
+    {
+      "rule_id": "OCHRATOXIN-A-WHEAT-BARLEY-RYE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "ochratoxin a",
+        "operator": "LTE",
+        "value": 20,
+        "unit": "ug/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(1) item 4",
+        "note": "Wheat, barley and rye"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "WHEAT_BARLEY_RYE"
+      }
+    },
+    {
+      "rule_id": "AGARIC-ACID-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "agaric acid",
+        "operator": "LTE",
+        "value": 100,
+        "unit": "ppm"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(2) item 1",
+        "note": "Any article of food (naturally occurring)"
+      }
+    },
+    {
+      "rule_id": "HYDROCYANIC-ACID-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "hydrocyanic acid",
+        "operator": "LTE",
+        "value": 5,
+        "unit": "ppm"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(2) item 2",
+        "note": "Any article of food (naturally occurring)"
+      }
+    },
+    {
+      "rule_id": "HYPERICINE-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "hypericine",
+        "operator": "LTE",
+        "value": 1,
+        "unit": "ppm"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(2) item 3",
+        "note": "Any article of food (naturally occurring)"
+      }
+    },
+    {
+      "rule_id": "SAFFROLE-DEFAULT",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "saffrole",
+        "operator": "LTE",
+        "value": 10,
+        "unit": "ppm"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.2.1(2) item 4",
+        "note": "Any article of food (naturally occurring)"
+      }
+    },
+    {
+      "rule_id": "TETRACYCLINE-SEAFOOD",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "tetracycline",
+        "operator": "LTE",
+        "value": 0.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(1)",
+        "note": "Sea foods including shrimps, prawns or any other variety of fish and fishery products"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "OXYTETRACYCLINE-SEAFOOD",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "oxytetracycline",
+        "operator": "LTE",
+        "value": 0.1,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(1)",
+        "note": "Sea foods including shrimps, prawns or any other variety of fish and fishery products"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "TRIMETHOPRIM-SEAFOOD",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "trimethoprim",
+        "operator": "LTE",
+        "value": 0.05,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(1)",
+        "note": "Sea foods including shrimps, prawns or any other variety of fish and fishery products"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "OXOLINIC-ACID-SEAFOOD",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "oxolinic acid",
+        "operator": "LTE",
+        "value": 0.3,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(1)",
+        "note": "Sea foods including shrimps, prawns or any other variety of fish and fishery products"
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-FURALTADONE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "furaltadone",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-FURAZOLIDONE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "furazolidone",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-FURYLFURAMIDE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "furylfuramide",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-NIFURATEL",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "nifuratel",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-NIFUROXIME",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "nifuroxime",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-NIFURPRAZINE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "nifurprazine",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-NITROFURANTOIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "nitrofurantoin",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-NITROFURAZONE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "nitrofurazone",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-CHLORAMPHENICOL",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "chloramphenicol",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-NEOMYCIN",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "neomycin",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-NALIDIXIC-ACID",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "nalidixic acid",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-SULPHAMETHOXAZOLE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "sulphamethoxazole",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-ARISTOLOCHIA-SPP-AND-PREPARATIONS-THEREOF",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "aristolochia spp and preparations thereof",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-CHLOROFORM",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "chloroform",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-CHLOROPROMAZINE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "chloropromazine",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-CHOLCHICINE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "cholchicine",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-DAPSONE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "dapsone",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-DIMETRIDAZOLE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "dimetridazole",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-METRONIDAZOLE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "metronidazole",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-RONIDAZOLE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "ronidazole",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-IPRONIDAZOLE",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "ipronidazole",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-OTHER-NITROIMIDAZOLES",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "other nitroimidazoles",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-CLENBUTEROL",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "clenbuterol",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-DIETHYLSTIBESTROL-DES",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "diethylstibestrol (des)",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-FLUOROQUINOLONES",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "fluoroquinolones",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "BAN-SEAFOOD-GLYCOPEPTIDES",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "check": {
+        "field": "glycopeptides",
+        "operator": "LTE",
+        "value": 0.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Contaminants, Toxins and Residues) Regulations, 2011",
+        "section": "2.3.2(2)",
+        "note": "Use prohibited in any unit processing sea foods including shrimps, prawns or any other variety of fish and fishery products (zero-tolerance residue)."
+      },
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SEAFOOD_SHRIMP_PRAWN_FISH_FISHERY_PRODUCTS"
+      }
+    },
+    {
+      "rule_id": "STANDARD-CREAM-MIN-MILK-FAT",
+      "rule_type": "PRODUCT_STANDARD_NUMERIC",
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "CREAM"
+      },
+      "check": {
+        "field": "milk fat",
+        "operator": "GTE",
+        "value": 25.0,
+        "unit": "%"
+      },
+      "source": {
+        "regulation": "FSS (Prohibition and Restrictions on Sales) Regulations, 2011",
+        "section": "2.1.1(1)",
+        "note": "Cream must be prepared exclusively from milk and contain not less than 25% milk fat."
+      }
+    },
+    {
+      "rule_id": "HEXANE-RESIDUE-COCOA-BUTTER-SOLVENT-EXTRACTED",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "COCOA_BUTTER_SOLVENT_EXTRACTED"
+      },
+      "check": {
+        "field": "hexane residue",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Prohibition and Restrictions on Sales) Regulations, 2011",
+        "section": "2.3.15(6)",
+        "note": "Refined solvent-extracted cocoa butter. Only n-Hexane (food grade) may be used as solvent for extraction."
+      }
+    },
+    {
+      "rule_id": "HEXANE-RESIDUE-SOLVENT-EXTRACTED-OILS-FATS",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOLVENT_EXTRACTED_OILS_FATS"
+      },
+      "check": {
+        "field": "hexane residue",
+        "operator": "LTE",
+        "value": 5.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Prohibition and Restrictions on Sales) Regulations, 2011",
+        "section": "2.3.15(6)",
+        "note": "Refined solvent-extracted oils and fats. Only n-Hexane (food grade) may be used as solvent for extraction."
+      }
+    },
+    {
+      "rule_id": "HEXANE-RESIDUE-SOLVENT-EXTRACTED-SOYA-FLOUR",
+      "rule_type": "CONTAMINANT_LIMIT",
+      "when": {
+        "field": "food.category",
+        "operator": "EQUALS",
+        "value": "SOLVENT_EXTRACTED_EDIBLE_SOYA_FLOUR"
+      },
+      "check": {
+        "field": "hexane residue",
+        "operator": "LTE",
+        "value": 10.0,
+        "unit": "mg/kg"
+      },
+      "source": {
+        "regulation": "FSS (Prohibition and Restrictions on Sales) Regulations, 2011",
+        "section": "2.3.15(6)",
+        "note": "Solvent-extracted edible soya flour. Only n-Hexane (food grade) may be used as solvent for extraction."
+      }
+    },
+    {
+      "rule_id": "PROHIBITION-TOBACCO",
+      "rule_type": "ADDITIVE_PROHIBITION",
+      "when": {
+        "field": "additive.declared_name",
+        "operator": "IN",
+        "value": [
+          "tobacco"
+        ]
+      },
+      "then": {
+        "decision": "NON_COMPLIANT",
+        "message": "Tobacco shall not be used as an ingredient in any food product."
+      },
+      "source": {
+        "regulation": "FSS (Prohibition and Restrictions on Sales) Regulations, 2011",
+        "section": "2.3.4"
+      }
+    },
+    {
+      "rule_id": "PROHIBITION-NICOTINE",
+      "rule_type": "ADDITIVE_PROHIBITION",
+      "when": {
+        "field": "additive.declared_name",
+        "operator": "IN",
+        "value": [
+          "nicotine"
+        ]
+      },
+      "then": {
+        "decision": "NON_COMPLIANT",
+        "message": "Nicotine shall not be used as an ingredient in any food product."
+      },
+      "source": {
+        "regulation": "FSS (Prohibition and Restrictions on Sales) Regulations, 2011",
+        "section": "2.3.4"
+      }
+    },
+    {
+      "rule_id": "PROHIBITION-CALCIUM-CARBIDE",
+      "rule_type": "ADDITIVE_PROHIBITION",
+      "when": {
+        "field": "additive.declared_name",
+        "operator": "IN",
+        "value": [
+          "calcium carbide",
+          "carbide gas"
+        ]
+      },
+      "then": {
+        "decision": "NON_COMPLIANT",
+        "message": "Carbide gas (calcium carbide) shall not be used to artificially ripen fruit."
+      },
+      "source": {
+        "regulation": "FSS (Prohibition and Restrictions on Sales) Regulations, 2011",
+        "section": "2.3.5"
+      }
+    }
+  ]
+}
