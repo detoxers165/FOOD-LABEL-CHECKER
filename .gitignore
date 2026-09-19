@@ -1,2 +1,30 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.venv*/
+venv/
+*.egg-info/
+.DS_Store
+.vscode/
+.idea/
+.python-version
 
+# Don't commit large source PDFs of the gazette notifications here --
+# link to the official source in SOURCES.md instead. If the team wants
+# them versioned for provenance, use Git LFS rather than plain git.
+*.pdf
 model/
+integration_result.json
+
+# Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env*.local
+
+# OCR output & temporary logs
+output/
+*.log
+

@@ -1,0 +1,10 @@
+# FSSAI Food Label Checker & Regulatory Compliance Pipeline
+pytest>=8.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+paddlepaddle>=3.0.0
+paddleocr>=3.0.0
+fastapi>=0.110.0
+uvicorn>=0.28.0
+python-multipart>=0.0.9
+pydantic>=2.6.0

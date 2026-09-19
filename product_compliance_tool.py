@@ -19,6 +19,7 @@
 # ============================================================
 
 from __future__ import annotations
+from regulation.label_pipeline import check_ocr_result
 
 import argparse
 import glob
@@ -30,7 +31,11 @@ import sys
 import time
 from dataclasses import dataclass
 from difflib import SequenceMatcher
-
+FSSAI_RULES_FILE = os.path.join(
+    os.path.dirname(__file__),
+    "regulation",
+    "rules.json",
+)
 os.environ.setdefault("FLAGS_use_mkldnn", "0")
 os.environ.setdefault("FLAGS_enable_pir_api", "0")
 os.environ.setdefault("GLOG_minloglevel", "2")
@@ -726,10 +731,7 @@ class Engine:
     # ---- raw call -------------------------------------------------
     def _raw(self, image):
         if self.mode == "predict":
-            try:
-                return self.ocr.predict(image)
-            except Exception:
-                pass
+            return self.ocr.predict(image)
         try:
             return self.ocr.ocr(image, cls=True)
         except TypeError:
@@ -2227,46 +2229,79 @@ def main():
 
             if not args.merge:
                 # Single-image mode: extraction and compliance both run NOW,
-                # per image - this is the "run it and get an answer" path.
+                # per image — this is the "run it and get an answer path."
                 report = run_compliance(result)
-                comp_path = os.path.join(args.outdir, f"{stem}_compliance.json")
+
+                comp_path = os.path.join(
+                    args.outdir,
+                    f"{stem}_compliance.json"
+                )
+
                 with open(comp_path, "w", encoding="utf-8") as f:
                     json.dump(report, f, indent=2, ensure_ascii=False)
-                print(f"[ok] compliance -> {comp_path}  "
-                      f"({report['overall_status']}, "
-                      f"{report['compliance_score_percent']}%)")
+
+                # FSSAI regulatory validation
+                fssai_report = check_ocr_result(
+                    result,
+                    FSSAI_RULES_FILE,
+                )
+
+                fssai_path = os.path.join(
+                    args.outdir,
+                    f"{stem}_fssai_compliance.json",
+                )
+
+                with open(fssai_path, "w", encoding="utf-8") as f:
+                    json.dump(
+                        fssai_report,
+                        f,
+                        indent=2,
+                        ensure_ascii=False,
+                    )
+
+                print(
+                    f"[ok] FSSAI compliance -> {fssai_path} "
+                    f"({fssai_report['overall_status']})"
+                )
+
+                print(
+                    f"[ok] compliance -> {comp_path} "
+                    f"({report['overall_status']}, "
+                    f"{report['compliance_score_percent']}%)"
+                )
+
                 if not args.quiet:
                     display_result(result)
                     display_compliance(report)
         except Exception as exc:
-            failures += 1
-            print(f"[fail] {path}: {exc}")
-            if cfg.debug:
-                import traceback
-                traceback.print_exc()
+                    failures += 1
+                    print(f"[fail] {path}: {exc}")
+                    if cfg.debug:
+                        import traceback
+                        traceback.print_exc()
 
-    if args.merge and collected:
-        # Merged mode: ALL images are one product. Compliance runs ONCE on
-        # the combined record, not once per photo - a date on the back and
-        # an MRP on the front both count toward the SAME verdict.
-        name = args.name or os.path.splitext(
-            os.path.basename(collected[0].get("source_image", "product")))[0]
-        merged = merge_results(collected, label=name)
-        out_json = os.path.join(args.outdir, f"{name}_merged.json")
-        with open(out_json, "w", encoding="utf-8") as f:
-            json.dump(merged, f, indent=2, ensure_ascii=False)
-        print(f"\n[merged] {len(collected)} image(s) -> {out_json}")
+        if args.merge and collected:
+                    # Merged mode: ALL images are one product. Compliance runs ONCE on
+                    # the combined record, not once per photo - a date on the back and
+                    # an MRP on the front both count toward the SAME verdict.
+                    name = args.name or os.path.splitext(
+                        os.path.basename(collected[0].get("source_image", "product")))[0]
+                    merged = merge_results(collected, label=name)
+                    out_json = os.path.join(args.outdir, f"{name}_merged.json")
+                    with open(out_json, "w", encoding="utf-8") as f:
+                        json.dump(merged, f, indent=2, ensure_ascii=False)
+                    print(f"\n[merged] {len(collected)} image(s) -> {out_json}")
 
-        report = run_compliance(merged)
-        comp_path = os.path.join(args.outdir, f"{name}_compliance.json")
-        with open(comp_path, "w", encoding="utf-8") as f:
-            json.dump(report, f, indent=2, ensure_ascii=False)
-        print(f"[merged] compliance -> {comp_path}  "
-              f"({report['overall_status']}, "
-              f"{report['compliance_score_percent']}%)")
-        if not args.quiet:
-            display_merged(merged)
-            display_compliance(report)
+                    report = run_compliance(merged)
+                    comp_path = os.path.join(args.outdir, f"{name}_compliance.json")
+                    with open(comp_path, "w", encoding="utf-8") as f:
+                        json.dump(report, f, indent=2, ensure_ascii=False)
+                    print(f"[merged] compliance -> {comp_path}  "
+                        f"({report['overall_status']}, "
+                        f"{report['compliance_score_percent']}%)")
+                    if not args.quiet:
+                        display_merged(merged)
+                        display_compliance(report)
 
     return 1 if failures else 0
 
