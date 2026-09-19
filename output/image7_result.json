@@ -1,0 +1,1198 @@
+{
+  "success": true,
+  "source_image": "D:\\product_compliance_model\\images\\image7.jpeg",
+  "quality": {
+    "ocr_regions": 88,
+    "visual_rows": 21,
+    "mean_confidence": 0.961,
+    "low_confidence_regions": 0,
+    "fields_found": 0,
+    "median_text_height_px": 38.0,
+    "warnings": [
+      "No labelled fields matched. If the label is not in English, pass --lang (e.g. --lang devanagari)."
+    ]
+  },
+  "preprocessing": {
+    "original_size": [
+      470,
+      730
+    ],
+    "passes": [
+      {
+        "name": "base",
+        "regions": 88,
+        "score": 717.0
+      }
+    ],
+    "rotation_applied": 0,
+    "resize_scale": 1.9178,
+    "deskew_angle": 0.0,
+    "median_text_height": 38.0
+  },
+  "product_information": {},
+  "sections": {
+    "nutrition": {
+      "heading": "Nutrition Information (Approx.)",
+      "content": [
+        "(Approx.)",
+        "ypical Values",
+        "Per 100 g",
+        "Per Serve",
+        "% RDA' Per Serve",
+        "Energy",
+        "hotein",
+        "559 kcal/2339 KJ",
+        "79",
+        "84 kcal/351 kJ",
+        "19",
+        "4.2%",
+        "Tutal Carbohydrates",
+        "Dietary Fiber",
+        "Sugars",
+        "<1g",
+        "52g",
+        "4g",
+        "8g",
+        "Total Fat",
+        "Saturated Fat",
+        "Monounsaturated Fat",
+        "Added Sugar",
+        "14g",
+        "36g",
+        "12g",
+        "0g",
+        "09",
+        "2g",
+        "5g",
+        "29",
+        "9.6%",
+        "8.1 %",
+        "0%",
+        "Sodium",
+        "Potassium",
+        "Tans Fat",
+        "Cholesterol",
+        "Polyunsaturated Fat",
+        "1100 mg",
+        "1620 mg",
+        "0mg",
+        "109",
+        "165 mg",
+        "243mg",
+        "1g",
+        "00",
+        "<0.1*%",
+        "8.2 %",
+        "RDA Daily values are based on 2000 kcal diet.",
+        "\"Limit of Quantification"
+      ],
+      "text": "(Approx.) ypical Values Per 100 g Per Serve % RDA' Per Serve Energy hotein 559 kcal/2339 KJ 79 84 kcal/351 kJ 19 4.2% Tutal Carbohydrates Dietary Fiber Sugars <1g 52g 4g 8g Total Fat Saturated Fat Monounsaturated Fat Added Sugar 14g 36g 12g 0g 09 2g 5g 29 9.6% 8.1 % 0% Sodium Potassium Tans Fat Cholesterol Polyunsaturated Fat 1100 mg 1620 mg 0mg 109 165 mg 243mg 1g 00 <0.1*% 8.2 % RDA Daily values are based on 2000 kcal diet. \"Limit of Quantification",
+      "confidence": 1.0
+    }
+  },
+  "nutrition": {
+    "energy": {
+      "evidence": [
+        "Energy"
+      ],
+      "confidence": 0.988,
+      "values": {
+        "per_100g": "79",
+        "per_serving": "84",
+        "rda": "4.2%"
+      },
+      "value": "79",
+      "basis": "per_100g"
+    },
+    "carbohydrate": {
+      "evidence": [
+        "Tutal Carbohydrates"
+      ],
+      "confidence": 0.934,
+      "values": {
+        "per_100g": "52g",
+        "per_serving": "8g"
+      },
+      "value": "52g",
+      "basis": "per_100g"
+    },
+    "dietary_fibre": {
+      "evidence": [
+        "Dietary Fiber"
+      ],
+      "confidence": 0.986,
+      "values": {
+        "per_100g": "1g",
+        "per_serving": "1g"
+      },
+      "value": "1g",
+      "basis": "per_100g"
+    },
+    "total_sugars": {
+      "evidence": [
+        "Sugars"
+      ],
+      "confidence": 0.999,
+      "values": {
+        "per_100g": "1g",
+        "per_serving": "1g",
+        "rda": "0%"
+      },
+      "value": "1g",
+      "basis": "per_100g"
+    },
+    "added_sugars": {
+      "evidence": [
+        "Added Sugar"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "0g",
+        "per_serving": "09",
+        "rda": "0%"
+      },
+      "value": "0g",
+      "basis": "per_100g"
+    },
+    "total_fat": {
+      "evidence": [
+        "Tans Fat"
+      ],
+      "confidence": 0.813,
+      "values": {
+        "per_100g": "0mg",
+        "per_serving": "0mg"
+      },
+      "value": "0mg",
+      "basis": "per_100g"
+    },
+    "saturated_fat": {
+      "evidence": [
+        "Saturated Fat"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "14g",
+        "per_serving": "2g",
+        "rda": "9.6%"
+      },
+      "value": "14g",
+      "basis": "per_100g"
+    },
+    "cholesterol": {
+      "evidence": [
+        "Cholesterol"
+      ],
+      "confidence": 0.998,
+      "values": {
+        "per_100g": "1100 mg",
+        "per_serving": "165 mg",
+        "rda": "8.2 %"
+      },
+      "value": "1100 mg",
+      "basis": "per_100g"
+    },
+    "sodium": {
+      "evidence": [
+        "Sodium"
+      ],
+      "confidence": 0.994,
+      "values": {
+        "per_100g": "1100 mg",
+        "per_serving": "165 mg",
+        "rda": "8.2 %"
+      },
+      "value": "1100 mg",
+      "basis": "per_100g"
+    },
+    "potassium": {
+      "evidence": [
+        "Potassium"
+      ],
+      "confidence": 0.999,
+      "values": {
+        "per_100g": "1620 mg",
+        "per_serving": "243mg"
+      },
+      "value": "1620 mg",
+      "basis": "per_100g"
+    }
+  },
+  "contacts": {
+    "phones": [],
+    "emails": [],
+    "websites": []
+  },
+  "full_text": "84\nCalories\n% Daily\nValue/% Valeur Quotidien*\nTotal 5g\nTotal Fat/Gras\n7%\nGras Saturé Fat 2g\nSaturated Fat/\n10%\nGras Trans 0g\nTrans Fat/Acide\n0%\n7%\n3%\n2%\n0%\nProtein/Protéine 1g\n2%\nVitamin D 0mcg\n0%\n2%\nCalcium 21mg\nIron<1mg\n2%\n5%\nPotassium 243mg\nThe % Daily\nValue\nof food\ncontributes to a daily\nNutrition Information (Approx.)\nAbout 2 Servings Per Container\nServing Size: 1 cup (15g)\nypical Values\nPer 100 g\nPer Serve\n% RDA' Per Serve\n559 kcal/2339 KJ\n84 kcal/351 kJ\n4.2%\nEnergy\n79\n19\nhotein\nTutal Carbohydrates\n52g\n8g\n4g\nDietary Fiber\n<1g\n<1g\n<1g\nSugars\n09\nAdded Sugar\n0g\n0%\n36g\n5g\n8.1 %\nTotal Fat\n2g\n14g\n9.6%\nSaturated Fat\n29\n12g\nMonounsaturated Fat\nPolyunsaturated Fat\n109\n1g\n<0.1*%\n00\n09\nTans Fat\n0mg\n0mg\nCholesterol\n8.2 %\n165 mg\n1100 mg\nSodium\n1620 mg\n243mg\nPotassium\nRDA Daily values are based on 2000 kcal diet.\n\"Limit of Quantification",
+  "raw_ocr": [
+    {
+      "text": "84",
+      "confidence": 1.0,
+      "box": [
+        681.0,
+        31.0,
+        853.0,
+        150.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Calories",
+      "confidence": 1.0,
+      "box": [
+        51.0,
+        65.0,
+        350.0,
+        152.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "% Daily",
+      "confidence": 0.9693,
+      "box": [
+        239.0,
+        146.0,
+        383.0,
+        191.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Value/% Valeur Quotidien*",
+      "confidence": 0.9796,
+      "box": [
+        361.0,
+        147.0,
+        843.0,
+        211.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total 5g",
+      "confidence": 0.9996,
+      "box": [
+        292.0,
+        188.0,
+        455.0,
+        249.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Fat/Gras",
+      "confidence": 0.9987,
+      "box": [
+        46.0,
+        195.0,
+        308.0,
+        256.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "7%",
+      "confidence": 0.9996,
+      "box": [
+        786.0,
+        200.0,
+        852.0,
+        247.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Gras Saturé Fat 2g",
+      "confidence": 0.9992,
+      "box": [
+        290.0,
+        236.0,
+        600.0,
+        306.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Saturated Fat/",
+      "confidence": 0.9998,
+      "box": [
+        74.0,
+        244.0,
+        311.0,
+        297.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "10%",
+      "confidence": 0.9999,
+      "box": [
+        768.0,
+        248.0,
+        851.0,
+        295.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Gras Trans 0g",
+      "confidence": 0.998,
+      "box": [
+        320.0,
+        285.0,
+        557.0,
+        352.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Trans Fat/Acide",
+      "confidence": 0.9999,
+      "box": [
+        71.0,
+        286.0,
+        334.0,
+        343.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0%",
+      "confidence": 0.9993,
+      "box": [
+        780.0,
+        335.0,
+        849.0,
+        385.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "7%",
+      "confidence": 0.9998,
+      "box": [
+        780.0,
+        380.0,
+        848.0,
+        429.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "3%",
+      "confidence": 0.9999,
+      "box": [
+        781.0,
+        432.0,
+        848.0,
+        475.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2%",
+      "confidence": 0.9999,
+      "box": [
+        783.0,
+        481.0,
+        850.0,
+        525.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0%",
+      "confidence": 0.9998,
+      "box": [
+        786.0,
+        585.0,
+        852.0,
+        628.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Protein/Protéine 1g",
+      "confidence": 0.9994,
+      "box": [
+        30.0,
+        617.0,
+        385.0,
+        685.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2%",
+      "confidence": 0.9999,
+      "box": [
+        790.0,
+        637.0,
+        854.0,
+        679.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Vitamin D 0mcg",
+      "confidence": 0.9792,
+      "box": [
+        30.0,
+        693.0,
+        271.0,
+        753.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0%",
+      "confidence": 1.0,
+      "box": [
+        365.0,
+        705.0,
+        432.0,
+        748.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2%",
+      "confidence": 0.8717,
+      "box": [
+        793.0,
+        714.0,
+        855.0,
+        755.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Calcium 21mg",
+      "confidence": 0.9972,
+      "box": [
+        480.0,
+        716.0,
+        710.0,
+        762.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Iron<1mg",
+      "confidence": 0.9514,
+      "box": [
+        33.0,
+        740.0,
+        182.0,
+        792.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2%",
+      "confidence": 1.0,
+      "box": [
+        363.0,
+        746.0,
+        431.0,
+        789.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "5%",
+      "confidence": 1.0,
+      "box": [
+        795.0,
+        754.0,
+        856.0,
+        793.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Potassium 243mg",
+      "confidence": 0.9998,
+      "box": [
+        482.0,
+        756.0,
+        765.0,
+        800.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "The % Daily",
+      "confidence": 0.9767,
+      "box": [
+        44.0,
+        797.0,
+        183.0,
+        834.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Value",
+      "confidence": 0.9999,
+      "box": [
+        183.0,
+        798.0,
+        249.0,
+        823.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "of food",
+      "confidence": 0.9977,
+      "box": [
+        781.0,
+        812.0,
+        866.0,
+        839.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "contributes to a daily",
+      "confidence": 0.9808,
+      "box": [
+        45.0,
+        818.0,
+        254.0,
+        861.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Nutrition Information (Approx.)",
+      "confidence": 1.0,
+      "box": [
+        89.0,
+        870.0,
+        783.0,
+        933.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "About 2 Servings Per Container",
+      "confidence": 0.9355,
+      "box": [
+        22.0,
+        906.0,
+        356.0,
+        959.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Serving Size: 1 cup (15g)",
+      "confidence": 0.9936,
+      "box": [
+        601.0,
+        923.0,
+        871.0,
+        958.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ypical Values",
+      "confidence": 0.9864,
+      "box": [
+        26.0,
+        951.0,
+        164.0,
+        992.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per 100 g",
+      "confidence": 0.9958,
+      "box": [
+        343.0,
+        953.0,
+        457.0,
+        987.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per Serve",
+      "confidence": 0.9998,
+      "box": [
+        541.0,
+        956.0,
+        658.0,
+        987.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "% RDA' Per Serve",
+      "confidence": 0.9441,
+      "box": [
+        672.0,
+        959.0,
+        870.0,
+        990.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "559 kcal/2339 KJ",
+      "confidence": 0.9517,
+      "box": [
+        258.0,
+        979.0,
+        457.0,
+        1017.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "84 kcal/351 kJ",
+      "confidence": 0.9482,
+      "box": [
+        489.0,
+        988.0,
+        657.0,
+        1015.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4.2%",
+      "confidence": 0.9963,
+      "box": [
+        805.0,
+        990.0,
+        872.0,
+        1019.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Energy",
+      "confidence": 0.9883,
+      "box": [
+        22.0,
+        997.0,
+        78.0,
+        1027.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "79",
+      "confidence": 0.8901,
+      "box": [
+        408.0,
+        1009.0,
+        460.0,
+        1045.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "19",
+      "confidence": 0.7963,
+      "box": [
+        612.0,
+        1012.0,
+        659.0,
+        1045.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "hotein",
+      "confidence": 0.9231,
+      "box": [
+        26.0,
+        1023.0,
+        78.0,
+        1044.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Tutal Carbohydrates",
+      "confidence": 0.9343,
+      "box": [
+        20.0,
+        1030.0,
+        211.0,
+        1076.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "52g",
+      "confidence": 0.9998,
+      "box": [
+        399.0,
+        1033.0,
+        459.0,
+        1069.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8g",
+      "confidence": 0.9052,
+      "box": [
+        611.0,
+        1035.0,
+        660.0,
+        1070.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4g",
+      "confidence": 0.996,
+      "box": [
+        410.0,
+        1058.0,
+        460.0,
+        1092.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Dietary Fiber",
+      "confidence": 0.9863,
+      "box": [
+        29.0,
+        1060.0,
+        162.0,
+        1100.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "<1g",
+      "confidence": 0.9887,
+      "box": [
+        595.0,
+        1062.0,
+        659.0,
+        1095.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "<1g",
+      "confidence": 0.9389,
+      "box": [
+        393.0,
+        1084.0,
+        459.0,
+        1117.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "<1g",
+      "confidence": 0.8847,
+      "box": [
+        595.0,
+        1085.0,
+        661.0,
+        1122.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Sugars",
+      "confidence": 0.9986,
+      "box": [
+        32.0,
+        1092.0,
+        104.0,
+        1123.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "09",
+      "confidence": 0.832,
+      "box": [
+        604.0,
+        1106.0,
+        662.0,
+        1150.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Added Sugar",
+      "confidence": 0.9999,
+      "box": [
+        31.0,
+        1107.0,
+        195.0,
+        1151.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0g",
+      "confidence": 0.9586,
+      "box": [
+        403.0,
+        1107.0,
+        460.0,
+        1144.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0%",
+      "confidence": 0.9998,
+      "box": [
+        819.0,
+        1108.0,
+        878.0,
+        1142.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "36g",
+      "confidence": 0.9623,
+      "box": [
+        398.0,
+        1134.0,
+        459.0,
+        1169.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "5g",
+      "confidence": 0.7883,
+      "box": [
+        612.0,
+        1137.0,
+        661.0,
+        1171.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8.1 %",
+      "confidence": 0.9245,
+      "box": [
+        810.0,
+        1137.0,
+        877.0,
+        1165.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Fat",
+      "confidence": 0.9642,
+      "box": [
+        15.0,
+        1143.0,
+        93.0,
+        1178.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2g",
+      "confidence": 0.7792,
+      "box": [
+        604.0,
+        1157.0,
+        664.0,
+        1200.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14g",
+      "confidence": 0.9914,
+      "box": [
+        392.0,
+        1159.0,
+        460.0,
+        1198.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "9.6%",
+      "confidence": 0.9999,
+      "box": [
+        799.0,
+        1159.0,
+        879.0,
+        1192.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Saturated Fat",
+      "confidence": 0.9999,
+      "box": [
+        28.0,
+        1160.0,
+        199.0,
+        1203.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "29",
+      "confidence": 0.9867,
+      "box": [
+        612.0,
+        1186.0,
+        664.0,
+        1223.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "12g",
+      "confidence": 0.9931,
+      "box": [
+        401.0,
+        1188.0,
+        460.0,
+        1223.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Monounsaturated Fat",
+      "confidence": 0.999,
+      "box": [
+        29.0,
+        1189.0,
+        249.0,
+        1228.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Polyunsaturated Fat",
+      "confidence": 0.9987,
+      "box": [
+        28.0,
+        1212.0,
+        237.0,
+        1258.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "109",
+      "confidence": 0.8213,
+      "box": [
+        401.0,
+        1213.0,
+        461.0,
+        1250.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1g",
+      "confidence": 0.9362,
+      "box": [
+        615.0,
+        1213.0,
+        663.0,
+        1248.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "<0.1*%",
+      "confidence": 0.9295,
+      "box": [
+        787.0,
+        1234.0,
+        882.0,
+        1269.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "00",
+      "confidence": 0.7198,
+      "box": [
+        615.0,
+        1238.0,
+        664.0,
+        1275.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "09",
+      "confidence": 0.7462,
+      "box": [
+        411.0,
+        1240.0,
+        460.0,
+        1276.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Tans Fat",
+      "confidence": 0.8134,
+      "box": [
+        10.0,
+        1249.0,
+        96.0,
+        1285.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0mg",
+      "confidence": 0.9998,
+      "box": [
+        598.0,
+        1264.0,
+        661.0,
+        1298.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0mg",
+      "confidence": 0.9997,
+      "box": [
+        393.0,
+        1266.0,
+        459.0,
+        1301.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Cholesterol",
+      "confidence": 0.9982,
+      "box": [
+        10.0,
+        1275.0,
+        116.0,
+        1310.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8.2 %",
+      "confidence": 0.9102,
+      "box": [
+        801.0,
+        1280.0,
+        885.0,
+        1320.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "165 mg",
+      "confidence": 0.9614,
+      "box": [
+        561.0,
+        1287.0,
+        662.0,
+        1325.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1100 mg",
+      "confidence": 0.9744,
+      "box": [
+        336.0,
+        1288.0,
+        459.0,
+        1327.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Sodium",
+      "confidence": 0.9935,
+      "box": [
+        7.0,
+        1300.0,
+        96.0,
+        1338.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1620 mg",
+      "confidence": 0.9493,
+      "box": [
+        357.0,
+        1319.0,
+        460.0,
+        1349.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "243mg",
+      "confidence": 1.0,
+      "box": [
+        574.0,
+        1319.0,
+        662.0,
+        1347.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Potassium",
+      "confidence": 0.9989,
+      "box": [
+        9.0,
+        1331.0,
+        105.0,
+        1363.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "RDA Daily values are based on 2000 kcal diet.",
+      "confidence": 0.9796,
+      "box": [
+        8.0,
+        1344.0,
+        491.0,
+        1394.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "\"Limit of Quantification",
+      "confidence": 0.9675,
+      "box": [
+        518.0,
+        1348.0,
+        755.0,
+        1376.0
+      ],
+      "source": "base"
+    }
+  ],
+  "elapsed_seconds": 25.96
+}

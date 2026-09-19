@@ -1,0 +1,588 @@
+{
+  "success": true,
+  "source_image": "D:\\product_compliance_model\\images\\image15.jpeg",
+  "quality": {
+    "ocr_regions": 40,
+    "visual_rows": 16,
+    "mean_confidence": 0.894,
+    "low_confidence_regions": 5,
+    "fields_found": 0,
+    "median_text_height_px": 52.5,
+    "warnings": [
+      "No labelled fields matched. If the label is not in English, pass --lang (e.g. --lang devanagari)."
+    ]
+  },
+  "preprocessing": {
+    "original_size": [
+      820,
+      1333
+    ],
+    "passes": [
+      {
+        "name": "base",
+        "regions": 40,
+        "score": 272.4
+      }
+    ],
+    "rotation_applied": 0,
+    "resize_scale": 1.0503,
+    "deskew_angle": 0.0,
+    "median_text_height": 52.5
+  },
+  "product_information": {},
+  "sections": {
+    "nutrition": {
+      "heading": "NUTRITIONAL FACTS",
+      "content": [
+        "(APPROXIMATE VALUES)",
+        "100ml",
+        "RDA' PER SERVE",
+        "ENERG (Kca)",
+        "95",
+        "4.2",
+        "PROTEIN(g)",
+        "CARBOHYDRATE ()",
+        "14",
+        "0",
+        "ADDED SUGARS (Gg)",
+        "TOTAL SUGARS (G)",
+        "37.5",
+        "TOTAL FAT (g)",
+        "SODIUM (mg)",
+        "20.2",
+        "1.5",
+        "DARECOENDEDIETARYALOANCE"
+      ],
+      "text": "(APPROXIMATE VALUES) 100ml RDA' PER SERVE ENERG (Kca) 95 4.2 PROTEIN(g) CARBOHYDRATE () 14 0 ADDED SUGARS (Gg) TOTAL SUGARS (G) 37.5 TOTAL FAT (g) SODIUM (mg) 20.2 1.5 DARECOENDEDIETARYALOANCE",
+      "confidence": 0.984
+    }
+  },
+  "nutrition": {
+    "energy": {
+      "evidence": [
+        "ENERG (Kca)"
+      ],
+      "confidence": 0.766,
+      "values": {
+        "per_100ml": "95"
+      },
+      "value": "95",
+      "basis": "per_100ml"
+    },
+    "protein": {
+      "evidence": [
+        "PROTEIN(g)"
+      ],
+      "confidence": 0.859,
+      "values": {
+        "per_100ml": "0"
+      },
+      "value": "0",
+      "basis": "per_100ml"
+    },
+    "carbohydrate": {
+      "evidence": [
+        "CARBOHYDRATE ()"
+      ],
+      "confidence": 0.987,
+      "values": {
+        "per_100ml": "14"
+      },
+      "value": "14",
+      "basis": "per_100ml"
+    },
+    "total_sugars": {
+      "evidence": [
+        "TOTAL SUGARS (G)"
+      ],
+      "confidence": 0.924,
+      "values": {
+        "per_100ml": "14"
+      },
+      "value": "14",
+      "basis": "per_100ml"
+    },
+    "added_sugars": {
+      "evidence": [
+        "ADDED SUGARS (Gg)"
+      ],
+      "confidence": 0.946,
+      "values": {
+        "per_100ml": "37.5"
+      },
+      "value": "37.5",
+      "basis": "per_100ml"
+    },
+    "total_fat": {
+      "evidence": [
+        "TOTAL FAT (g)"
+      ],
+      "confidence": 0.961,
+      "values": {
+        "per_100ml": "0"
+      },
+      "value": "0",
+      "basis": "per_100ml"
+    },
+    "sodium": {
+      "evidence": [
+        "SODIUM (mg)"
+      ],
+      "confidence": 0.953,
+      "values": {
+        "per_100ml": "20.2"
+      },
+      "value": "20.2",
+      "basis": "per_100ml"
+    }
+  },
+  "contacts": {
+    "phones": [],
+    "emails": [],
+    "websites": []
+  },
+  "full_text": "PH18008D\nFORMRPIaltaxes\nBATCHNO.,MFDANDUSEBY:EE\nSINGLE CONSUMPTION PACK\nSERIS\nNUTRITIONAL FACTS\nPER\n9%CONTRIBUTION TO\n4\n(APPROXIMATE VALUES)\n100ml\nRDA' PER SERVE\n08\nENERG (Kca)\n4.2\n95\n3\nPROTEIN(g)\n261\n0\nCARBOHYDRATE ()\n14\n2\nTOTAL SUGARS (G)\n413\n14\nADDED SUGARS (Gg)\n37.5\nTOTAL FAT (g)\n0\n0\n9\nSODIUM (mg)\n20.2\n1.5\n8\nDARECOENDEDIETARYALOANCE\nUSPMANSUNIT SALE PRICE\nF oY ABIS FEOPACKS (FUB\nnp kg IPSPS I- 20 CTG BTN C",
+  "raw_ocr": [
+    {
+      "text": "PH18008D",
+      "confidence": 0.6317,
+      "box": [
+        133.0,
+        140.0,
+        582.0,
+        214.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "FORMRPIaltaxes",
+      "confidence": 0.7185,
+      "box": [
+        147.0,
+        199.0,
+        602.0,
+        269.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "BATCHNO.,MFDANDUSEBY:EE",
+      "confidence": 0.829,
+      "box": [
+        152.0,
+        251.0,
+        619.0,
+        321.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SINGLE CONSUMPTION PACK",
+      "confidence": 0.9949,
+      "box": [
+        155.0,
+        309.0,
+        441.0,
+        372.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SERIS",
+      "confidence": 0.592,
+      "box": [
+        151.0,
+        356.0,
+        573.0,
+        423.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "NUTRITIONAL FACTS",
+      "confidence": 0.9841,
+      "box": [
+        157.0,
+        417.0,
+        328.0,
+        470.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PER",
+      "confidence": 1.0,
+      "box": [
+        366.0,
+        421.0,
+        412.0,
+        467.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "9%CONTRIBUTION TO",
+      "confidence": 0.9484,
+      "box": [
+        424.0,
+        422.0,
+        572.0,
+        475.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4",
+      "confidence": 0.9983,
+      "box": [
+        677.0,
+        448.0,
+        698.0,
+        474.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "(APPROXIMATE VALUES)",
+      "confidence": 0.9903,
+      "box": [
+        157.0,
+        463.0,
+        352.0,
+        517.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "100ml",
+      "confidence": 0.9998,
+      "box": [
+        356.0,
+        467.0,
+        421.0,
+        517.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "RDA' PER SERVE",
+      "confidence": 0.8649,
+      "box": [
+        438.0,
+        470.0,
+        556.0,
+        522.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "08",
+      "confidence": 0.9992,
+      "box": [
+        673.0,
+        473.0,
+        702.0,
+        542.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ENERG (Kca)",
+      "confidence": 0.7664,
+      "box": [
+        152.0,
+        518.0,
+        288.0,
+        573.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4.2",
+      "confidence": 0.8229,
+      "box": [
+        480.0,
+        526.0,
+        521.0,
+        577.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "95",
+      "confidence": 0.8941,
+      "box": [
+        364.0,
+        527.0,
+        403.0,
+        574.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "3",
+      "confidence": 0.9887,
+      "box": [
+        677.0,
+        533.0,
+        701.0,
+        567.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PROTEIN(g)",
+      "confidence": 0.8588,
+      "box": [
+        147.0,
+        561.0,
+        271.0,
+        627.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "261",
+      "confidence": 0.7822,
+      "box": [
+        675.0,
+        564.0,
+        703.0,
+        643.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0",
+      "confidence": 0.9994,
+      "box": [
+        366.0,
+        581.0,
+        395.0,
+        622.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "CARBOHYDRATE ()",
+      "confidence": 0.9874,
+      "box": [
+        150.0,
+        609.0,
+        331.0,
+        677.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14",
+      "confidence": 1.0,
+      "box": [
+        358.0,
+        631.0,
+        396.0,
+        676.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2",
+      "confidence": 0.9974,
+      "box": [
+        680.0,
+        644.0,
+        705.0,
+        677.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "TOTAL SUGARS (G)",
+      "confidence": 0.9238,
+      "box": [
+        159.0,
+        660.0,
+        329.0,
+        730.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "413",
+      "confidence": 0.9742,
+      "box": [
+        677.0,
+        674.0,
+        708.0,
+        773.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14",
+      "confidence": 1.0,
+      "box": [
+        357.0,
+        683.0,
+        392.0,
+        727.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ADDED SUGARS (Gg)",
+      "confidence": 0.9461,
+      "box": [
+        156.0,
+        710.0,
+        338.0,
+        783.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "37.5",
+      "confidence": 0.9997,
+      "box": [
+        470.0,
+        733.0,
+        522.0,
+        782.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "TOTAL FAT (g)",
+      "confidence": 0.9606,
+      "box": [
+        142.0,
+        756.0,
+        278.0,
+        831.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0",
+      "confidence": 0.9974,
+      "box": [
+        478.0,
+        786.0,
+        512.0,
+        830.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0",
+      "confidence": 0.9935,
+      "box": [
+        354.0,
+        787.0,
+        381.0,
+        832.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "9",
+      "confidence": 0.8267,
+      "box": [
+        682.0,
+        795.0,
+        706.0,
+        828.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SODIUM (mg)",
+      "confidence": 0.9528,
+      "box": [
+        139.0,
+        804.0,
+        274.0,
+        881.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "20.2",
+      "confidence": 1.0,
+      "box": [
+        337.0,
+        836.0,
+        397.0,
+        888.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1.5",
+      "confidence": 0.9984,
+      "box": [
+        477.0,
+        837.0,
+        512.0,
+        880.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8",
+      "confidence": 0.9992,
+      "box": [
+        682.0,
+        849.0,
+        709.0,
+        878.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "DARECOENDEDIETARYALOANCE",
+      "confidence": 0.5856,
+      "box": [
+        132.0,
+        862.0,
+        577.0,
+        959.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "USPMANSUNIT SALE PRICE",
+      "confidence": 0.8419,
+      "box": [
+        113.0,
+        1121.0,
+        407.0,
+        1219.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "F oY ABIS FEOPACKS (FUB",
+      "confidence": 0.6343,
+      "box": [
+        489.0,
+        1269.0,
+        668.0,
+        1308.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "np kg IPSPS I- 20 CTG BTN C",
+      "confidence": 0.4904,
+      "box": [
+        432.0,
+        1292.0,
+        674.0,
+        1332.0
+      ],
+      "source": "base"
+    }
+  ],
+  "elapsed_seconds": 28.88
+}

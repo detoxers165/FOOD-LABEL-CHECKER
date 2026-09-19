@@ -1,0 +1,143 @@
+{
+  "success": true,
+  "source": "D:\\modelv3\\images\\image5.jpeg",
+  "overall_status": "NON_COMPLIANT",
+  "compliance_score_percent": 0.0,
+  "mandatory_checked": 7,
+  "mandatory_failed": 7,
+  "needs_review_count": 0,
+  "unsupported_clause_count": 3,
+  "verdicts": [
+    {
+      "rule_id": "LM-1",
+      "title": "Manufacturer / packer / importer identified",
+      "clause": "Rule 6(1)(a)",
+      "category": "mandatory",
+      "status": "FAIL",
+      "evidence": "",
+      "note": "Not found on any provided image; scan quality was good enough that this likely means the label omits it.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-2",
+      "title": "Net quantity declared in standard units",
+      "clause": "Rule 6(1)(c) / Rule 8",
+      "category": "mandatory",
+      "status": "FAIL",
+      "evidence": "",
+      "note": "Not found on any provided image; scan quality was good enough that this likely means the label omits it.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-3",
+      "title": "Maximum Retail Price declared",
+      "clause": "Rule 6(1)(d)",
+      "category": "mandatory",
+      "status": "FAIL",
+      "evidence": "",
+      "note": "Not found on any provided image; scan quality was good enough that this likely means the label omits it.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-4",
+      "title": "MRP carries the 'inclusive of all taxes' clause",
+      "clause": "Rule 18",
+      "category": "mandatory",
+      "status": "NOT_APPLICABLE",
+      "evidence": "",
+      "note": "Skipped - no MRP was found (see LM-3).",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-5",
+      "title": "Month & year of manufacture/packing declared",
+      "clause": "Rule 6(1)(e)",
+      "category": "mandatory",
+      "status": "FAIL",
+      "evidence": "",
+      "note": "Not found on any provided image; scan quality was good enough that this likely means the label omits it.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-6",
+      "title": "Best-before / use-by / expiry declared",
+      "clause": "Rule 6(1)(e) proviso",
+      "category": "mandatory",
+      "status": "FAIL",
+      "evidence": "",
+      "note": "Not found on any provided image; scan quality was good enough that this likely means the label omits it. Not all commodities require a shelf-life date - confirm this product category needs one before citing.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-7",
+      "title": "Batch / lot / code number declared",
+      "clause": "Rule 6(1)(f)",
+      "category": "mandatory",
+      "status": "FAIL",
+      "evidence": "",
+      "note": "Not found on any provided image; scan quality was good enough that this likely means the label omits it.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-8",
+      "title": "Consumer complaint / care channel declared",
+      "clause": "Rule 6(1)(b) proviso",
+      "category": "mandatory",
+      "status": "FAIL",
+      "evidence": "",
+      "note": "Not found on any provided image; scan quality was good enough that this likely means the label omits it.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "LM-9",
+      "title": "Country of origin declared",
+      "clause": "2018 amendment (imported goods only)",
+      "category": "mandatory",
+      "status": "NOT_APPLICABLE",
+      "evidence": "",
+      "note": "No origin declaration found. This clause only binds imported goods; nothing here indicates whether this product is imported, so it is not scored either way.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "SUP-1",
+      "title": "FSSAI licence number present",
+      "clause": "FSSAI Act, 2006 (not Legal Metrology)",
+      "category": "supplementary",
+      "status": "PASS",
+      "evidence": "['10012031000312']",
+      "note": "",
+      "from_image": "image5.jpeg"
+    },
+    {
+      "rule_id": "UNSUP-1",
+      "title": "Common / generic name of commodity declared",
+      "clause": "Rule 6(1)(b)",
+      "category": "unsupported",
+      "status": "NOT_CHECKED",
+      "evidence": "",
+      "note": "product_reader has no product-name field yet - this clause cannot be judged from its output.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "UNSUP-2",
+      "title": "Declaration letter/numeral height meets minimum size",
+      "clause": "Rule 7",
+      "category": "unsupported",
+      "status": "NOT_CHECKED",
+      "evidence": "",
+      "note": "Requires a physical scale reference (e.g. a marker of known size) in the photo; a plain photo has no absolute scale, so pixel height cannot be converted to millimetres.",
+      "from_image": ""
+    },
+    {
+      "rule_id": "UNSUP-3",
+      "title": "Declaration present in Hindi as well as English",
+      "clause": "Rule 4",
+      "category": "unsupported",
+      "status": "NOT_CHECKED",
+      "evidence": "",
+      "note": "The extractor's label matching is English-alias-only today, so it cannot confirm or deny a Hindi declaration.",
+      "from_image": ""
+    }
+  ],
+  "disclaimer": "Automated pre-screening only. NOT_CHECKED and NOT_APPLICABLE clauses were not evaluated by this software and require manual verification. This is not a substitute for a certified Legal Metrology officer's inspection."
+}

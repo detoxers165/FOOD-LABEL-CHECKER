@@ -1,0 +1,2072 @@
+{
+  "success": true,
+  "source_image": "D:\\product_compliance_model\\images\\image11.jpeg",
+  "quality": {
+    "ocr_regions": 150,
+    "visual_rows": 14,
+    "mean_confidence": 0.949,
+    "low_confidence_regions": 8,
+    "fields_found": 6,
+    "median_text_height_px": 40.0,
+    "warnings": []
+  },
+  "preprocessing": {
+    "original_size": [
+      1200,
+      1600
+    ],
+    "passes": [
+      {
+        "name": "base",
+        "regions": 151,
+        "score": 1928.8
+      }
+    ],
+    "rotation_applied": 0,
+    "resize_scale": 1.0,
+    "deskew_angle": 0.0,
+    "median_text_height": 40.0
+  },
+  "product_information": {
+    "marketed_by": {
+      "value": "Information (Approx.)",
+      "label": "Marketed By:",
+      "match_score": 1.0,
+      "label_confidence": 1.0,
+      "label_box": [
+        738.0,
+        195.0,
+        847.0,
+        243.0
+      ],
+      "evidence": [
+        "Marketed By:",
+        "Information (Approx.)",
+        "on our \"Marketed by\" address or"
+      ],
+      "value_confidence": 0.999,
+      "value_box": [
+        383.0,
+        122.0,
+        737.0,
+        234.0
+      ],
+      "additional_values": [
+        "address or"
+      ]
+    },
+    "manufacturer": {
+      "value": "LUE W 10120",
+      "label": "Manufactured By:",
+      "match_score": 1.0,
+      "label_confidence": 0.986,
+      "label_box": [
+        743.0,
+        327.0,
+        876.0,
+        376.0
+      ],
+      "evidence": [
+        "Manufactured By:",
+        "LUE W 10120"
+      ],
+      "value_confidence": 0.635,
+      "value_box": [
+        1086.0,
+        325.0,
+        1158.0,
+        371.0
+      ]
+    },
+    "batch_number": {
+      "value": "1070/2",
+      "label": "D: DADIJI SNACKS PVT. LTD., Mauza No. 96, Plot No. 1070/2",
+      "match_score": 0.909,
+      "label_confidence": 0.938,
+      "label_box": [
+        733.0,
+        746.0,
+        1153.0,
+        774.0
+      ],
+      "evidence": [
+        "D: DADIJI SNACKS PVT. LTD., Mauza No. 96, Plot No. 1070/2",
+        "J: JAI BARBAREEK DEV SNACKS PVT. LTD., Plot No. K",
+        "BATCH NO.:"
+      ],
+      "additional_values": [
+        "11905",
+        "K 26 H 84 109"
+      ]
+    },
+    "customer_care": {
+      "value": "Executive",
+      "label": "please write to our Customer Care Executive",
+      "match_score": 1.0,
+      "label_confidence": 0.986,
+      "label_box": [
+        765.0,
+        872.0,
+        1037.0,
+        913.0
+      ],
+      "evidence": [
+        "please write to our Customer Care Executive"
+      ]
+    },
+    "net_quantity": {
+      "value": null,
+      "label": "NET WEIGHT:",
+      "match_score": 1.0,
+      "label_confidence": 1.0,
+      "label_box": [
+        706.0,
+        1122.0,
+        820.0,
+        1156.0
+      ],
+      "evidence": [
+        "NET WEIGHT:"
+      ]
+    },
+    "manufacturing_date": {
+      "value": "15 FEB 2027",
+      "label": "MFG. DATE:",
+      "match_score": 1.0,
+      "label_confidence": 0.998,
+      "label_box": [
+        709.0,
+        1197.0,
+        812.0,
+        1233.0
+      ],
+      "evidence": [
+        "MFG. DATE:",
+        "15 FEB 2027"
+      ],
+      "value_confidence": 0.942,
+      "value_box": [
+        901.0,
+        1224.0,
+        1040.0,
+        1286.0
+      ]
+    },
+    "expiry_date": {
+      "value": null,
+      "label": "USE BY:",
+      "match_score": 1.0,
+      "label_confidence": 0.951,
+      "label_box": [
+        713.0,
+        1252.0,
+        784.0,
+        1283.0
+      ],
+      "evidence": [
+        "USE BY:"
+      ]
+    },
+    "mrp": {
+      "value": null,
+      "label": "MRP (INCL. OF",
+      "match_score": 1.0,
+      "label_confidence": 0.92,
+      "label_box": [
+        712.0,
+        1268.0,
+        852.0,
+        1310.0
+      ],
+      "evidence": [
+        "MRP (INCL. OF"
+      ]
+    },
+    "fssai_license": {
+      "values": [
+        "10016013001074",
+        "10020031003467",
+        "10422999000028",
+        "10423999000001",
+        "103219900009",
+        "127220450",
+        "1052400600048"
+      ],
+      "evidence": [
+        {
+          "value": "10016013001074",
+          "evidence": [
+            "FSSAI LIC.No.10016013001074"
+          ],
+          "confidence": 0.99
+        },
+        {
+          "value": "10020031003467",
+          "evidence": [
+            "FSSAI LIC.No.10016013001074",
+            "FSSAI LIC.No.10020031003467"
+          ],
+          "confidence": 0.991
+        },
+        {
+          "value": "10422999000028",
+          "evidence": [
+            "Bihar 842002 FSSAI LIC. No. 10422999000028"
+          ],
+          "confidence": 0.99
+        },
+        {
+          "value": "10423999000001",
+          "evidence": [
+            "Bihar 801304 FSSAI LIC. No. 10423999000001"
+          ],
+          "confidence": 0.982
+        },
+        {
+          "value": "103219900009",
+          "evidence": [
+            "Kamrup Dist., Assam 781101 FSSAI LIC.No.103219900009"
+          ],
+          "confidence": 0.947
+        },
+        {
+          "value": "127220450",
+          "evidence": [
+            "Kanpur Nagar, Uttar Pradesh 209402 FSSAI LIC. No. 127220450"
+          ],
+          "confidence": 0.973
+        },
+        {
+          "value": "1052400600048",
+          "evidence": [
+            "Chhattisgarh 490036 FSSAI LIC. No. 1052400600048"
+          ],
+          "confidence": 0.99
+        }
+      ]
+    }
+  },
+  "sections": {
+    "allergen": {
+      "heading": "CONTAIN",
+      "content": [
+        "133, INS 102)"
+      ],
+      "text": "133, INS 102)",
+      "confidence": 0.999
+    },
+    "storage": {
+      "heading": "STORAGI",
+      "content": [
+        "Bikaji Foods In",
+        "AA-01-001-125",
+        "DPA"
+      ],
+      "text": "Bikaji Foods In AA-01-001-125 DPA",
+      "confidence": 0.94
+    }
+  },
+  "nutrition": {
+    "energy": {
+      "evidence": [
+        "Energy"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "520 kcal",
+        "per_serving": "130 kcal"
+      },
+      "value": "520 kcal",
+      "basis": "per_100g"
+    },
+    "protein": {
+      "evidence": [
+        "Protein"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "17g",
+        "per_serving": "543",
+        "rda": "6.5%"
+      },
+      "value": "17g",
+      "basis": "per_100g"
+    },
+    "carbohydrate": {
+      "evidence": [
+        "Total Carbohydrates"
+      ],
+      "confidence": 0.999,
+      "values": {
+        "per_100g": "45g",
+        "per_serving": "11g"
+      },
+      "value": "45g",
+      "basis": "per_100g"
+    },
+    "dietary_fibre": {
+      "evidence": [
+        "Dietary Fiber"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "10g",
+        "per_serving": "11g"
+      },
+      "value": "10g",
+      "basis": "per_100g"
+    },
+    "total_sugars": {
+      "evidence": [
+        "Total Sugars"
+      ],
+      "confidence": 0.99,
+      "values": {
+        "per_100g": "10g",
+        "per_serving": "1g"
+      },
+      "value": "10g",
+      "basis": "per_100g"
+    },
+    "added_sugars": {
+      "evidence": [
+        "Added Sugars"
+      ],
+      "confidence": 0.989,
+      "values": {
+        "per_100g": "3g",
+        "per_serving": "1g"
+      },
+      "value": "3g",
+      "basis": "per_100g"
+    },
+    "total_fat": {
+      "evidence": [
+        "Sturad Fat"
+      ],
+      "confidence": 0.848,
+      "values": {
+        "per_100g": "30g",
+        "per_serving": "2g",
+        "rda": "10.4%"
+      },
+      "value": "30g",
+      "basis": "per_100g"
+    },
+    "trans_fat": {
+      "evidence": [
+        "Trans Fat"
+      ],
+      "confidence": 0.949,
+      "values": {
+        "per_100g": "0g",
+        "per_serving": "0g"
+      },
+      "value": "0g",
+      "basis": "per_100g"
+    },
+    "cholesterol": {
+      "evidence": [
+        "Cholesterol"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "0mg",
+        "per_serving": "0 mg"
+      },
+      "value": "0mg",
+      "basis": "per_100g"
+    },
+    "sodium": {
+      "evidence": [
+        "Sodium"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "1024 mg",
+        "per_serving": "256 mg",
+        "rda": "12.8%"
+      },
+      "value": "1024 mg",
+      "basis": "per_100g"
+    },
+    "potassium": {
+      "evidence": [
+        "Potassium"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "606 mg",
+        "per_serving": "256 mg",
+        "rda": "12.8%"
+      },
+      "value": "606 mg",
+      "basis": "per_100g"
+    }
+  },
+  "contacts": {
+    "phones": [
+      "+91-151-2250350"
+    ],
+    "emails": [
+      "care@bikaji.com"
+    ],
+    "websites": [
+      "www.bikaji.com"
+    ]
+  },
+  "full_text": "TRY OTHER\nBhujia\nBIKAJI\nPRODUCTS\nInformation (Approx.)\nNutrition\nr container: 16\nServing per\nServing Size: 1/4\n4 cup (25g)\nMarketed By:\nBIKAJI FOODS INTERNATIONAL LTD.\nTypical Values\nPer 100 g\nF/196-199,F/178,E/188,BichhwalIndustrial Area.\nPer Serve\nBikaner-334006,Rajasthan,India\n% RDA\nPer Serve\nFor manuacturin u addrese\nEnergy\n520 kcal /\nIssal\n130 kcal\nLUE W 10120\n2173 kJ\nManufactured By:\n543 kJ\n6.5%\nProtein\n17g\n4g\nTotal Carbohydrates\n45g\nFSSAI LIC.No.10016013001074\n11g\nDietary Fiber\n10g\nP:PAMPAR OVENFRESH FOODS (PLTD.,Suda\n2g\nTotal Sugars\n3g\nDhulagori Gram PanchayaPS-SakaHoa\n<1g\nAdded Sugars\n3g\nFSSAI LIC.No.10020031003467\n<1g\n1.6%\nTotal Fat\n30g\nT: PETUNT FOOD PROCESSORS PVT.LTD,O\n8g\n11.2\nSturad Fat\n66\ndu\n2g\n10.4%\non F\n14g\nBBI\n3g\nly F\n224, 207, 302, 216, 273, 269, 104, Village Dorakaha\n79\n2g\nTrans Fat\nKamrup Dist., Assam 781101 FSSAI LIC.No.103219900009\n0g\n0g\n<0.1*%\nCholesterol\n0mg\nV: BIKAJI FOODS INTERNATIONAL LTD., A-36P Ind\n0 mg\nSodium\nBihar 842002 FSSAI LIC. No. 10422999000028\n1024 mg\n256 mg\n12.8%\nPotassium\nR: M/S RAADHEY NAMKEEN PVT. LTD., Arazi No. 437, 4\n606 mg\n151 mg\nValues rounded off to nearest place.\nKanpur Nagar, Uttar Pradesh 209402 FSSAI LIC. No. 127220450\nD: DADIJI SNACKS PVT. LTD., Mauza No. 96, Plot No. 1070/2\nLimit of Quantification.\nBihar 801304 FSSAI LIC. No. 10423999000001\nJ: JAI BARBAREEK DEV SNACKS PVT. LTD., Plot No. K\nChhattisgarh 490036 FSSAI LIC. No. 1052400600048\nCottonseed\nOS(25)Gam\nFOR COMPLAINTS, FEEDBACK & QUERIES\nWhole\n(10)Pea(7),DrdP\nplease write to our Customer Care Executive\n(4%).\non our \"Marketed by\" address or\nce\nFlakes (3%), Tapioca Starch, Potato Starch,\nDehyd\nCall: +91-151-2250350 from\nPotato Flakes, Ground Spices & Condiments\ned\nMonday-Saturday between 10 am & 6 pm\n(lodised\n,R Chil,Tumer (Colo&Se)\nore-mail us at care@bikaji.com\nCumin\nOrder Online on www.bikaji.com\nSpinac\n11905\n8\nFollow us on:\nAcidity\nDownload Bikaji Online App from\nulator (INS 330))\nCONTAIN\nAn ISO 9001 and ISO 22000 Ca\nFOOD\nSYNTHETIC\nADDED PERMITTED\n133, INS 102)\nALLARGEN\nNET WEIGHT:\nthat\n4009\npro\n2026\n16 AUG\nsulphiteals\nmustard, and\nK 26 H 84 109\ns containing gluten, sesame,\nMFG. DATE:\nSTORAGI\nBATCH NO.:\n15 FEB 2027\naway fro\nUSE BY:\nin an\nMRP (INCL. OF\nDO NOT B\nALL TAXES); USP :\njkG. Mfd.\nBikaji Foods In\nAA-01-001-125\nDPA",
+  "raw_ocr": [
+    {
+      "text": "TRY OTHER",
+      "confidence": 0.9898,
+      "box": [
+        259.0,
+        0.0,
+        391.0,
+        40.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Bhujia",
+      "confidence": 0.9996,
+      "box": [
+        522.0,
+        2.0,
+        589.0,
+        44.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "BIKAJI",
+      "confidence": 0.9957,
+      "box": [
+        282.0,
+        29.0,
+        362.0,
+        72.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PRODUCTS",
+      "confidence": 0.9999,
+      "box": [
+        261.0,
+        63.0,
+        389.0,
+        109.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Information (Approx.)",
+      "confidence": 0.9992,
+      "box": [
+        383.0,
+        122.0,
+        737.0,
+        234.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Nutrition",
+      "confidence": 1.0,
+      "box": [
+        243.0,
+        126.0,
+        401.0,
+        180.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "r container: 16",
+      "confidence": 0.9712,
+      "box": [
+        354.0,
+        165.0,
+        519.0,
+        212.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Serving per",
+      "confidence": 0.9994,
+      "box": [
+        246.0,
+        169.0,
+        375.0,
+        208.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Serving Size: 1/4",
+      "confidence": 0.9837,
+      "box": [
+        243.0,
+        189.0,
+        436.0,
+        240.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4 cup (25g)",
+      "confidence": 0.998,
+      "box": [
+        415.0,
+        195.0,
+        540.0,
+        244.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Marketed By:",
+      "confidence": 0.9996,
+      "box": [
+        738.0,
+        195.0,
+        847.0,
+        243.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "BIKAJI FOODS INTERNATIONAL LTD.",
+      "confidence": 0.9877,
+      "box": [
+        738.0,
+        216.0,
+        982.0,
+        296.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Typical Values",
+      "confidence": 0.9999,
+      "box": [
+        244.0,
+        233.0,
+        365.0,
+        278.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per 100 g",
+      "confidence": 0.9947,
+      "box": [
+        459.0,
+        235.0,
+        553.0,
+        283.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "F/196-199,F/178,E/188,BichhwalIndustrial Area.",
+      "confidence": 0.9472,
+      "box": [
+        742.0,
+        240.0,
+        1069.0,
+        334.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per Serve",
+      "confidence": 0.9999,
+      "box": [
+        555.0,
+        250.0,
+        643.0,
+        296.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Bikaner-334006,Rajasthan,India",
+      "confidence": 0.8751,
+      "box": [
+        741.0,
+        262.0,
+        971.0,
+        336.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "% RDA",
+      "confidence": 0.9841,
+      "box": [
+        658.0,
+        268.0,
+        731.0,
+        310.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per Serve",
+      "confidence": 0.9998,
+      "box": [
+        646.0,
+        289.0,
+        731.0,
+        334.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "For manuacturin u addrese",
+      "confidence": 0.678,
+      "box": [
+        742.0,
+        297.0,
+        1145.0,
+        404.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Energy",
+      "confidence": 1.0,
+      "box": [
+        240.0,
+        298.0,
+        305.0,
+        338.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "520 kcal /",
+      "confidence": 0.9738,
+      "box": [
+        463.0,
+        298.0,
+        548.0,
+        341.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Issal",
+      "confidence": 0.9334,
+      "box": [
+        1106.0,
+        301.0,
+        1165.0,
+        347.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "130 kcal",
+      "confidence": 0.9976,
+      "box": [
+        568.0,
+        311.0,
+        643.0,
+        352.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "LUE W 10120",
+      "confidence": 0.6348,
+      "box": [
+        1086.0,
+        325.0,
+        1158.0,
+        371.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2173 kJ",
+      "confidence": 0.9969,
+      "box": [
+        475.0,
+        327.0,
+        549.0,
+        369.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Manufactured By:",
+      "confidence": 0.9863,
+      "box": [
+        743.0,
+        327.0,
+        876.0,
+        376.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "543 kJ",
+      "confidence": 0.9951,
+      "box": [
+        586.0,
+        342.0,
+        647.0,
+        381.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "6.5%",
+      "confidence": 0.9999,
+      "box": [
+        676.0,
+        354.0,
+        732.0,
+        394.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Protein",
+      "confidence": 1.0,
+      "box": [
+        246.0,
+        359.0,
+        305.0,
+        387.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "17g",
+      "confidence": 0.9997,
+      "box": [
+        499.0,
+        359.0,
+        553.0,
+        404.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4g",
+      "confidence": 0.9995,
+      "box": [
+        609.0,
+        374.0,
+        647.0,
+        412.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Carbohydrates",
+      "confidence": 0.9995,
+      "box": [
+        248.0,
+        386.0,
+        399.0,
+        416.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "45g",
+      "confidence": 0.9999,
+      "box": [
+        497.0,
+        386.0,
+        554.0,
+        432.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "FSSAI LIC.No.10016013001074",
+      "confidence": 0.9904,
+      "box": [
+        743.0,
+        397.0,
+        1021.0,
+        465.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "11g",
+      "confidence": 0.9921,
+      "box": [
+        599.0,
+        400.0,
+        649.0,
+        441.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Dietary Fiber",
+      "confidence": 0.9999,
+      "box": [
+        265.0,
+        415.0,
+        364.0,
+        444.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "10g",
+      "confidence": 0.9995,
+      "box": [
+        498.0,
+        415.0,
+        552.0,
+        459.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "P:PAMPAR OVENFRESH FOODS (PLTD.,Suda",
+      "confidence": 0.9042,
+      "box": [
+        739.0,
+        424.0,
+        1194.0,
+        520.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2g",
+      "confidence": 0.9857,
+      "box": [
+        610.0,
+        431.0,
+        644.0,
+        467.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Sugars",
+      "confidence": 0.9898,
+      "box": [
+        261.0,
+        439.0,
+        363.0,
+        471.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "3g",
+      "confidence": 0.9981,
+      "box": [
+        509.0,
+        448.0,
+        548.0,
+        485.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Dhulagori Gram PanchayaPS-SakaHoa",
+      "confidence": 0.8116,
+      "box": [
+        740.0,
+        448.0,
+        1165.0,
+        536.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "<1g",
+      "confidence": 0.9906,
+      "box": [
+        593.0,
+        454.0,
+        648.0,
+        497.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Added Sugars",
+      "confidence": 0.9894,
+      "box": [
+        260.0,
+        464.0,
+        385.0,
+        501.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "3g",
+      "confidence": 0.9862,
+      "box": [
+        503.0,
+        473.0,
+        550.0,
+        515.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "FSSAI LIC.No.10020031003467",
+      "confidence": 0.9909,
+      "box": [
+        741.0,
+        475.0,
+        1020.0,
+        533.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "<1g",
+      "confidence": 0.9916,
+      "box": [
+        591.0,
+        483.0,
+        646.0,
+        523.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1.6%",
+      "confidence": 0.9999,
+      "box": [
+        671.0,
+        488.0,
+        727.0,
+        525.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Fat",
+      "confidence": 0.998,
+      "box": [
+        250.0,
+        494.0,
+        310.0,
+        525.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "30g",
+      "confidence": 0.9999,
+      "box": [
+        498.0,
+        501.0,
+        549.0,
+        543.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "T: PETUNT FOOD PROCESSORS PVT.LTD,O",
+      "confidence": 0.9342,
+      "box": [
+        739.0,
+        503.0,
+        1185.0,
+        580.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8g",
+      "confidence": 0.9902,
+      "box": [
+        603.0,
+        511.0,
+        647.0,
+        550.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "11.2",
+      "confidence": 0.8919,
+      "box": [
+        668.0,
+        517.0,
+        725.0,
+        551.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Sturad Fat",
+      "confidence": 0.8476,
+      "box": [
+        268.0,
+        519.0,
+        376.0,
+        556.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "66",
+      "confidence": 0.9989,
+      "box": [
+        505.0,
+        531.0,
+        545.0,
+        570.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "du",
+      "confidence": 0.6067,
+      "box": [
+        740.0,
+        532.0,
+        1188.0,
+        601.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2g",
+      "confidence": 0.9178,
+      "box": [
+        601.0,
+        536.0,
+        647.0,
+        577.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "10.4%",
+      "confidence": 0.977,
+      "box": [
+        661.0,
+        541.0,
+        726.0,
+        578.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "on F",
+      "confidence": 0.6127,
+      "box": [
+        270.0,
+        550.0,
+        423.0,
+        585.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14g",
+      "confidence": 0.8151,
+      "box": [
+        496.0,
+        558.0,
+        547.0,
+        599.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "BBI",
+      "confidence": 0.5885,
+      "box": [
+        738.0,
+        560.0,
+        1166.0,
+        623.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "3g",
+      "confidence": 0.8073,
+      "box": [
+        604.0,
+        566.0,
+        642.0,
+        603.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ly F",
+      "confidence": 0.7727,
+      "box": [
+        268.0,
+        576.0,
+        415.0,
+        615.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "224, 207, 302, 216, 273, 269, 104, Village Dorakaha",
+      "confidence": 0.9116,
+      "box": [
+        739.0,
+        587.0,
+        1155.0,
+        637.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "79",
+      "confidence": 0.8037,
+      "box": [
+        504.0,
+        588.0,
+        543.0,
+        625.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2g",
+      "confidence": 0.9978,
+      "box": [
+        603.0,
+        593.0,
+        643.0,
+        629.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Trans Fat",
+      "confidence": 0.9485,
+      "box": [
+        249.0,
+        600.0,
+        326.0,
+        637.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Kamrup Dist., Assam 781101 FSSAI LIC.No.103219900009",
+      "confidence": 0.9472,
+      "box": [
+        737.0,
+        610.0,
+        1157.0,
+        660.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0g",
+      "confidence": 0.9986,
+      "box": [
+        504.0,
+        615.0,
+        542.0,
+        651.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0g",
+      "confidence": 0.9848,
+      "box": [
+        602.0,
+        618.0,
+        643.0,
+        657.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "<0.1*%",
+      "confidence": 0.8614,
+      "box": [
+        656.0,
+        622.0,
+        722.0,
+        655.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Cholesterol",
+      "confidence": 0.9999,
+      "box": [
+        245.0,
+        626.0,
+        326.0,
+        664.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0mg",
+      "confidence": 0.9999,
+      "box": [
+        488.0,
+        639.0,
+        543.0,
+        679.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "V: BIKAJI FOODS INTERNATIONAL LTD., A-36P Ind",
+      "confidence": 0.9347,
+      "box": [
+        737.0,
+        639.0,
+        1181.0,
+        685.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0 mg",
+      "confidence": 0.8892,
+      "box": [
+        590.0,
+        645.0,
+        640.0,
+        681.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Sodium",
+      "confidence": 0.9999,
+      "box": [
+        244.0,
+        651.0,
+        310.0,
+        692.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Bihar 842002 FSSAI LIC. No. 10422999000028",
+      "confidence": 0.9896,
+      "box": [
+        736.0,
+        663.0,
+        1091.0,
+        701.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1024 mg",
+      "confidence": 0.9889,
+      "box": [
+        455.0,
+        664.0,
+        542.0,
+        705.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "256 mg",
+      "confidence": 0.9993,
+      "box": [
+        566.0,
+        669.0,
+        638.0,
+        707.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "12.8%",
+      "confidence": 1.0,
+      "box": [
+        659.0,
+        671.0,
+        720.0,
+        707.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Potassium",
+      "confidence": 1.0,
+      "box": [
+        244.0,
+        680.0,
+        322.0,
+        720.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "R: M/S RAADHEY NAMKEEN PVT. LTD., Arazi No. 437, 4",
+      "confidence": 0.9368,
+      "box": [
+        736.0,
+        693.0,
+        1173.0,
+        728.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "606 mg",
+      "confidence": 0.9935,
+      "box": [
+        470.0,
+        694.0,
+        540.0,
+        732.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "151 mg",
+      "confidence": 0.9682,
+      "box": [
+        572.0,
+        697.0,
+        637.0,
+        733.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Values rounded off to nearest place.",
+      "confidence": 0.9997,
+      "box": [
+        249.0,
+        717.0,
+        607.0,
+        774.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Kanpur Nagar, Uttar Pradesh 209402 FSSAI LIC. No. 127220450",
+      "confidence": 0.9731,
+      "box": [
+        734.0,
+        720.0,
+        1169.0,
+        748.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "D: DADIJI SNACKS PVT. LTD., Mauza No. 96, Plot No. 1070/2",
+      "confidence": 0.9379,
+      "box": [
+        733.0,
+        746.0,
+        1153.0,
+        774.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Limit of Quantification.",
+      "confidence": 0.9968,
+      "box": [
+        251.0,
+        769.0,
+        470.0,
+        816.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Bihar 801304 FSSAI LIC. No. 10423999000001",
+      "confidence": 0.9819,
+      "box": [
+        733.0,
+        769.0,
+        1088.0,
+        796.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "J: JAI BARBAREEK DEV SNACKS PVT. LTD., Plot No. K",
+      "confidence": 0.964,
+      "box": [
+        731.0,
+        795.0,
+        1124.0,
+        823.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Chhattisgarh 490036 FSSAI LIC. No. 1052400600048",
+      "confidence": 0.9895,
+      "box": [
+        730.0,
+        812.0,
+        1123.0,
+        851.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Cottonseed",
+      "confidence": 0.9999,
+      "box": [
+        251.0,
+        835.0,
+        344.0,
+        879.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "OS(25)Gam",
+      "confidence": 0.5981,
+      "box": [
+        337.0,
+        845.0,
+        717.0,
+        891.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "FOR COMPLAINTS, FEEDBACK & QUERIES",
+      "confidence": 0.9987,
+      "box": [
+        762.0,
+        853.0,
+        1040.0,
+        888.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Whole",
+      "confidence": 0.9999,
+      "box": [
+        248.0,
+        861.0,
+        304.0,
+        901.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "(10)Pea(7),DrdP",
+      "confidence": 0.7382,
+      "box": [
+        293.0,
+        870.0,
+        717.0,
+        918.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "please write to our Customer Care Executive",
+      "confidence": 0.9863,
+      "box": [
+        765.0,
+        872.0,
+        1037.0,
+        913.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "(4%).",
+      "confidence": 0.952,
+      "box": [
+        249.0,
+        885.0,
+        299.0,
+        928.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "on our \"Marketed by\" address or",
+      "confidence": 0.9709,
+      "box": [
+        787.0,
+        891.0,
+        1010.0,
+        932.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ce",
+      "confidence": 0.8982,
+      "box": [
+        304.0,
+        900.0,
+        337.0,
+        933.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Flakes (3%), Tapioca Starch, Potato Starch,",
+      "confidence": 0.9812,
+      "box": [
+        332.0,
+        902.0,
+        713.0,
+        941.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Dehyd",
+      "confidence": 0.9998,
+      "box": [
+        249.0,
+        912.0,
+        307.0,
+        956.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Call: +91-151-2250350 from",
+      "confidence": 0.9721,
+      "box": [
+        790.0,
+        913.0,
+        998.0,
+        949.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Potato Flakes, Ground Spices & Condiments",
+      "confidence": 0.9089,
+      "box": [
+        329.0,
+        928.0,
+        714.0,
+        968.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ed",
+      "confidence": 0.9973,
+      "box": [
+        310.0,
+        931.0,
+        341.0,
+        957.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Monday-Saturday between 10 am & 6 pm",
+      "confidence": 0.9985,
+      "box": [
+        762.0,
+        933.0,
+        1020.0,
+        973.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "(lodised",
+      "confidence": 0.9962,
+      "box": [
+        250.0,
+        941.0,
+        312.0,
+        982.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": ",R Chil,Tumer (Colo&Se)",
+      "confidence": 0.6317,
+      "box": [
+        312.0,
+        953.0,
+        710.0,
+        995.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ore-mail us at care@bikaji.com",
+      "confidence": 0.9954,
+      "box": [
+        769.0,
+        955.0,
+        1007.0,
+        993.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Cumin",
+      "confidence": 0.9998,
+      "box": [
+        247.0,
+        966.0,
+        305.0,
+        1006.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Order Online on www.bikaji.com",
+      "confidence": 1.0,
+      "box": [
+        766.0,
+        982.0,
+        1011.0,
+        1021.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Spinac",
+      "confidence": 0.9965,
+      "box": [
+        245.0,
+        989.0,
+        306.0,
+        1035.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "11905",
+      "confidence": 0.8089,
+      "box": [
+        1084.0,
+        991.0,
+        1126.0,
+        1016.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8",
+      "confidence": 0.9999,
+      "box": [
+        1069.0,
+        995.0,
+        1092.0,
+        1019.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Follow us on:",
+      "confidence": 0.9979,
+      "box": [
+        819.0,
+        1013.0,
+        985.0,
+        1050.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Acidity",
+      "confidence": 0.9999,
+      "box": [
+        245.0,
+        1014.0,
+        307.0,
+        1062.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Download Bikaji Online App from",
+      "confidence": 0.9219,
+      "box": [
+        712.0,
+        1038.0,
+        960.0,
+        1080.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ulator (INS 330))",
+      "confidence": 0.9707,
+      "box": [
+        324.0,
+        1039.0,
+        473.0,
+        1072.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "CONTAIN",
+      "confidence": 0.9987,
+      "box": [
+        253.0,
+        1048.0,
+        326.0,
+        1095.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "An ISO 9001 and ISO 22000 Ca",
+      "confidence": 0.9604,
+      "box": [
+        857.0,
+        1057.0,
+        1099.0,
+        1107.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "FOOD",
+      "confidence": 1.0,
+      "box": [
+        640.0,
+        1059.0,
+        697.0,
+        1094.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SYNTHETIC",
+      "confidence": 1.0,
+      "box": [
+        537.0,
+        1065.0,
+        644.0,
+        1105.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ADDED PERMITTED",
+      "confidence": 1.0,
+      "box": [
+        338.0,
+        1071.0,
+        533.0,
+        1104.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "133, INS 102)",
+      "confidence": 0.9652,
+      "box": [
+        339.0,
+        1093.0,
+        468.0,
+        1127.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ALLARGEN",
+      "confidence": 0.8783,
+      "box": [
+        265.0,
+        1113.0,
+        344.0,
+        1166.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "NET WEIGHT:",
+      "confidence": 1.0,
+      "box": [
+        706.0,
+        1122.0,
+        820.0,
+        1156.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "that",
+      "confidence": 0.9996,
+      "box": [
+        271.0,
+        1136.0,
+        316.0,
+        1168.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4009",
+      "confidence": 0.9923,
+      "box": [
+        902.0,
+        1142.0,
+        984.0,
+        1190.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "pro",
+      "confidence": 0.9816,
+      "box": [
+        302.0,
+        1150.0,
+        335.0,
+        1174.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2026",
+      "confidence": 0.979,
+      "box": [
+        971.0,
+        1159.0,
+        1046.0,
+        1206.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "16 AUG",
+      "confidence": 0.9932,
+      "box": [
+        904.0,
+        1169.0,
+        995.0,
+        1218.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "sulphiteals",
+      "confidence": 0.9739,
+      "box": [
+        273.0,
+        1175.0,
+        357.0,
+        1214.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "mustard, and",
+      "confidence": 0.9992,
+      "box": [
+        577.0,
+        1180.0,
+        693.0,
+        1225.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "K 26 H 84 109",
+      "confidence": 0.8975,
+      "box": [
+        901.0,
+        1180.0,
+        1060.0,
+        1248.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "s containing gluten, sesame,",
+      "confidence": 0.9625,
+      "box": [
+        346.0,
+        1196.0,
+        589.0,
+        1234.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "MFG. DATE:",
+      "confidence": 0.9982,
+      "box": [
+        709.0,
+        1197.0,
+        812.0,
+        1233.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "STORAGI",
+      "confidence": 0.9404,
+      "box": [
+        276.0,
+        1202.0,
+        352.0,
+        1239.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "BATCH NO.:",
+      "confidence": 0.9998,
+      "box": [
+        712.0,
+        1223.0,
+        810.0,
+        1258.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "15 FEB 2027",
+      "confidence": 0.9416,
+      "box": [
+        901.0,
+        1224.0,
+        1040.0,
+        1286.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "away fro",
+      "confidence": 0.9994,
+      "box": [
+        281.0,
+        1226.0,
+        359.0,
+        1257.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "USE BY:",
+      "confidence": 0.9512,
+      "box": [
+        713.0,
+        1252.0,
+        784.0,
+        1283.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "in an",
+      "confidence": 0.9921,
+      "box": [
+        634.0,
+        1262.0,
+        696.0,
+        1293.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "MRP (INCL. OF",
+      "confidence": 0.9198,
+      "box": [
+        712.0,
+        1268.0,
+        852.0,
+        1310.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "DO NOT B",
+      "confidence": 0.9924,
+      "box": [
+        283.0,
+        1271.0,
+        367.0,
+        1303.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ALL TAXES); USP :",
+      "confidence": 0.9607,
+      "box": [
+        713.0,
+        1291.0,
+        874.0,
+        1335.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "jkG. Mfd.",
+      "confidence": 0.657,
+      "box": [
+        916.0,
+        1299.0,
+        1012.0,
+        1326.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Bikaji Foods In",
+      "confidence": 0.9384,
+      "box": [
+        286.0,
+        1303.0,
+        373.0,
+        1327.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "AA-01-001-125",
+      "confidence": 0.987,
+      "box": [
+        287.0,
+        1320.0,
+        377.0,
+        1342.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "DPA",
+      "confidence": 0.8231,
+      "box": [
+        384.0,
+        1324.0,
+        574.0,
+        1353.0
+      ],
+      "source": "base"
+    }
+  ],
+  "elapsed_seconds": 39.73
+}

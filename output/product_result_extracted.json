@@ -1,0 +1,61 @@
+{
+  "schema_version": "extractor_v1",
+  "source_image": "D:\\product_compliance_model\\images\\image8.jpeg",
+  "product_name": null,
+  "brand": null,
+  "net_quantity": null,
+  "mrp": null,
+  "batch_number": null,
+  "manufacturing_date": null,
+  "expiry_date": null,
+  "fssai_licenses": {
+    "values": [
+      "10014064000435"
+    ],
+    "evidence": [
+      {
+        "value": "10014064000435",
+        "evidence": [
+          "Mkt. Lic. No. 10014064000435"
+        ],
+        "confidence": 0.9956865310668945,
+        "box": [
+          930,
+          998,
+          1195,
+          1029
+        ]
+      }
+    ]
+  },
+  "manufacturer": null,
+  "marketed_by": null,
+  "ingredients": null,
+  "allergen_information": {
+    "text": "Contains Milk",
+    "heading": "ALLERGEN ADVICE: Contains Milk",
+    "confidence": 0.9991453289985657,
+    "evidence": [
+      "Contains Milk"
+    ]
+  },
+  "storage_instructions": null,
+  "customer_care": null,
+  "email": null,
+  "website": null,
+  "nutrition": {},
+  "contacts": {
+    "phones": [],
+    "emails": [],
+    "websites": [
+      "www.pepsicoindia"
+    ]
+  },
+  "conflicts": {},
+  "extraction_quality": {
+    "fields_detected": 1,
+    "fields_considered": 8,
+    "coverage": 0.125,
+    "warnings": []
+  }
+}
