@@ -1,0 +1,153 @@
+{
+  "schema_version": "extractor_v1",
+  "source_image": "D:\\product_compliance_model\\images\\image7.jpeg",
+  "product_name": null,
+  "brand": null,
+  "net_quantity": null,
+  "mrp": null,
+  "batch_number": null,
+  "manufacturing_date": null,
+  "expiry_date": null,
+  "fssai_licenses": {
+    "values": [],
+    "evidence": []
+  },
+  "manufacturer": null,
+  "marketed_by": null,
+  "ingredients": null,
+  "allergen_information": null,
+  "storage_instructions": null,
+  "customer_care": null,
+  "email": null,
+  "website": null,
+  "nutrition": {
+    "energy": {
+      "values": {
+        "per_100g": "79",
+        "per_serving": "84",
+        "rda": "4.2%"
+      },
+      "basis": "per_100g",
+      "confidence": 0.988,
+      "evidence": [
+        "Energy"
+      ]
+    },
+    "carbohydrate": {
+      "values": {
+        "per_100g": "52g",
+        "per_serving": "8g"
+      },
+      "basis": "per_100g",
+      "confidence": 0.934,
+      "evidence": [
+        "Tutal Carbohydrates"
+      ]
+    },
+    "dietary_fibre": {
+      "values": {
+        "per_100g": "1g",
+        "per_serving": "1g"
+      },
+      "basis": "per_100g",
+      "confidence": 0.986,
+      "evidence": [
+        "Dietary Fiber"
+      ]
+    },
+    "total_sugars": {
+      "values": {
+        "per_100g": "1g",
+        "per_serving": "1g",
+        "rda": "0%"
+      },
+      "basis": "per_100g",
+      "confidence": 0.999,
+      "evidence": [
+        "Sugars"
+      ]
+    },
+    "added_sugars": {
+      "values": {
+        "per_100g": "0g",
+        "per_serving": "09",
+        "rda": "0%"
+      },
+      "basis": "per_100g",
+      "confidence": 1.0,
+      "evidence": [
+        "Added Sugar"
+      ]
+    },
+    "total_fat": {
+      "values": {
+        "per_100g": "0mg",
+        "per_serving": "0mg"
+      },
+      "basis": "per_100g",
+      "confidence": 0.813,
+      "evidence": [
+        "Tans Fat"
+      ]
+    },
+    "saturated_fat": {
+      "values": {
+        "per_100g": "14g",
+        "per_serving": "2g",
+        "rda": "9.6%"
+      },
+      "basis": "per_100g",
+      "confidence": 1.0,
+      "evidence": [
+        "Saturated Fat"
+      ]
+    },
+    "cholesterol": {
+      "values": {
+        "per_100g": "1100 mg",
+        "per_serving": "165 mg",
+        "rda": "8.2 %"
+      },
+      "basis": "per_100g",
+      "confidence": 0.998,
+      "evidence": [
+        "Cholesterol"
+      ]
+    },
+    "sodium": {
+      "values": {
+        "per_100g": "1100 mg",
+        "per_serving": "165 mg",
+        "rda": "8.2 %"
+      },
+      "basis": "per_100g",
+      "confidence": 0.994,
+      "evidence": [
+        "Sodium"
+      ]
+    },
+    "potassium": {
+      "values": {
+        "per_100g": "1620 mg",
+        "per_serving": "243mg"
+      },
+      "basis": "per_100g",
+      "confidence": 0.999,
+      "evidence": [
+        "Potassium"
+      ]
+    }
+  },
+  "contacts": {
+    "phones": [],
+    "emails": [],
+    "websites": []
+  },
+  "conflicts": {},
+  "extraction_quality": {
+    "fields_detected": 1,
+    "fields_considered": 8,
+    "coverage": 0.125,
+    "warnings": []
+  }
+}

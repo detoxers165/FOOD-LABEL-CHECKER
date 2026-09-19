@@ -1,0 +1,860 @@
+{
+  "success": true,
+  "source_image": "D:\\modelv3\\images\\image5.jpeg",
+  "quality": {
+    "ocr_regions": 57,
+    "visual_rows": 26,
+    "mean_confidence": 0.983,
+    "low_confidence_regions": 0,
+    "fields_found": 1,
+    "median_text_height_px": 26.0,
+    "warnings": []
+  },
+  "preprocessing": {
+    "original_size": [
+      900,
+      965
+    ],
+    "passes": [
+      {
+        "name": "base",
+        "regions": 58,
+        "score": 851.2
+      }
+    ],
+    "rotation_applied": 0,
+    "resize_scale": 1.4508,
+    "deskew_angle": 0.0,
+    "median_text_height": 26.0
+  },
+  "product_information": {
+    "fssai_license": {
+      "values": [
+        "10012031000312"
+      ],
+      "evidence": [
+        {
+          "value": "10012031000312",
+          "evidence": [
+            "fssaí",
+            "Lic.No.10012031000312"
+          ],
+          "confidence": 1.0
+        }
+      ]
+    }
+  },
+  "sections": {
+    "ingredients": {
+      "heading": "INGREDIENTS: REFINED PALMOLEIN, BENGAL GRAM (21.5%),",
+      "content": [
+        "REFINED PALMOLEIN, BENGAL GRAM (21.5%),",
+        "PEANUT (15.9%), LENTIL (13.8%), BESAN, FLAKED RICE (4.8%),",
+        "SEASONING (#SPICES AND CONDIMENTS,IODIZED SALT, BLACK",
+        "SALT, NATURAL FLAVOURS AND NATURAL FLAVOURING",
+        "SUBSTANCES, DEHYDRATEDKACHRI, DEHYDRATED YELLOW",
+        "CHILLI AND NATURE IDENTICAL FLAVOURING SUBSTANCES)",
+        "STARCH, RICE FLOUR, IODIZEDSALT, TURMERIC POWDER,",
+        "SPINACH POWDER AND COLOURS [INS 100(i), INS 133].",
+        "#USED AS FLAVOURING AGENTS."
+      ],
+      "text": "REFINED PALMOLEIN, BENGAL GRAM (21.5%), PEANUT (15.9%), LENTIL (13.8%), BESAN, FLAKED RICE (4.8%), SEASONING (#SPICES AND CONDIMENTS,IODIZED SALT, BLACK SALT, NATURAL FLAVOURS AND NATURAL FLAVOURING SUBSTANCES, DEHYDRATEDKACHRI, DEHYDRATED YELLOW CHILLI AND NATURE IDENTICAL FLAVOURING SUBSTANCES) STARCH, RICE FLOUR, IODIZEDSALT, TURMERIC POWDER, SPINACH POWDER AND COLOURS [INS 100(i), INS 133]. #USED AS FLAVOURING AGENTS.",
+      "confidence": 0.991
+    },
+    "allergen": {
+      "heading": "CONTAINS WHEAT, NUT MAY CONTAINS MILK, SOY",
+      "content": [
+        "WHEAT, NUT MAY CONTAINS MILK, SOY",
+        "PROPRIETARY FOOD - NAMKEEN (MIXTURES) - 15.1"
+      ],
+      "text": "WHEAT, NUT MAY CONTAINS MILK, SOY PROPRIETARY FOOD - NAMKEEN (MIXTURES) - 15.1",
+      "confidence": 0.967
+    },
+    "nutrition": {
+      "heading": "NUTRITIONAL INFORMATION (Approx. Values)",
+      "content": [
+        "(Approx. Values)",
+        "Per 100g",
+        "Per Serve",
+        "(20g)",
+        "perserve",
+        "%RDA",
+        "Energy (kcal)",
+        "550",
+        "110",
+        "5.5",
+        "Protein (g)",
+        "14.2",
+        "2.8",
+        "Carbohydrate (g)",
+        "45.6",
+        "9.1",
+        "- Total Sugars (g)",
+        "2.4",
+        "0.5",
+        "8",
+        "- Added Sugars(g)",
+        "2.3",
+        "0.9",
+        "Total Fat (g)",
+        "35.2",
+        "7.0",
+        "10.5",
+        "-Trans fat\" (g)",
+        "0.1",
+        "0.02",
+        "1.0",
+        "-Saturatedfat(g)",
+        "11.5"
+      ],
+      "text": "(Approx. Values) Per 100g Per Serve (20g) perserve %RDA Energy (kcal) 550 110 5.5 Protein (g) 14.2 2.8 Carbohydrate (g) 45.6 9.1 - Total Sugars (g) 2.4 0.5 8 - Added Sugars(g) 2.3 0.9 Total Fat (g) 35.2 7.0 10.5 -Trans fat\" (g) 0.1 0.02 1.0 -Saturatedfat(g) 11.5",
+      "confidence": 0.99
+    }
+  },
+  "nutrition": {
+    "energy": {
+      "evidence": [
+        "Energy (kcal)"
+      ],
+      "confidence": 0.992,
+      "values": {
+        "per_100g": "550",
+        "per_serving": "110"
+      },
+      "value": "550",
+      "basis": "per_100g"
+    },
+    "protein": {
+      "evidence": [
+        "Protein (g)"
+      ],
+      "confidence": 0.983,
+      "values": {
+        "per_100g": "14.2",
+        "per_serving": "2.8"
+      },
+      "value": "14.2",
+      "basis": "per_100g"
+    },
+    "carbohydrate": {
+      "evidence": [
+        "Carbohydrate (g)"
+      ],
+      "confidence": 0.99,
+      "values": {
+        "per_100g": "45.6",
+        "per_serving": "9.1"
+      },
+      "value": "45.6",
+      "basis": "per_100g"
+    },
+    "total_sugars": {
+      "evidence": [
+        "- Total Sugars (g)"
+      ],
+      "confidence": 0.942,
+      "values": {
+        "per_100g": "2.4",
+        "per_serving": "0.5"
+      },
+      "value": "2.4",
+      "basis": "per_100g"
+    },
+    "added_sugars": {
+      "evidence": [
+        "- Added Sugars(g)"
+      ],
+      "confidence": 0.96,
+      "values": {
+        "per_100g": "2.3",
+        "per_serving": "0.5"
+      },
+      "value": "2.3",
+      "basis": "per_100g"
+    },
+    "total_fat": {
+      "evidence": [
+        "Total Fat (g)"
+      ],
+      "confidence": 0.981,
+      "values": {
+        "per_100g": "35.2",
+        "per_serving": "7.0"
+      },
+      "value": "35.2",
+      "basis": "per_100g"
+    },
+    "trans_fat": {
+      "evidence": [
+        "-Trans fat\" (g)"
+      ],
+      "confidence": 0.945,
+      "values": {
+        "per_100g": "0.1",
+        "per_serving": "0.02"
+      },
+      "value": "0.1",
+      "basis": "per_100g"
+    },
+    "saturated_fat": {
+      "evidence": [
+        "-Saturatedfat(g)"
+      ],
+      "confidence": 0.992,
+      "values": {
+        "per_100g": "11.5",
+        "per_serving": "2.3"
+      },
+      "value": "11.5",
+      "basis": "per_100g"
+    },
+    "sodium": {
+      "evidence": [
+        "Sodium (mg)"
+      ],
+      "confidence": 0.996,
+      "values": {
+        "per_100g": "878.9",
+        "per_serving": "175.8"
+      },
+      "value": "878.9",
+      "basis": "per_100g"
+    }
+  },
+  "contacts": {
+    "phones": [],
+    "emails": [],
+    "websites": []
+  },
+  "full_text": "INGREDIENTS: REFINED PALMOLEIN, BENGAL GRAM (21.5%),\nPEANUT (15.9%), LENTIL (13.8%), BESAN, FLAKED RICE (4.8%),\nSEASONING (#SPICES AND CONDIMENTS,IODIZED SALT, BLACK\nSALT, NATURAL FLAVOURS AND NATURAL FLAVOURING\nSUBSTANCES, DEHYDRATEDKACHRI, DEHYDRATED YELLOW\nCHILLI AND NATURE IDENTICAL FLAVOURING SUBSTANCES)\nSTARCH, RICE FLOUR, IODIZEDSALT, TURMERIC POWDER,\nSPINACH POWDER AND COLOURS [INS 100(i), INS 133].\n#USED AS FLAVOURING AGENTS.\nCONTAINS WHEAT, NUT MAY CONTAINS MILK, SOY\nPROPRIETARY FOOD - NAMKEEN (MIXTURES) - 15.1\nNUTRITIONAL INFORMATION (Approx. Values)\n%RDA\nPer Serve\nPer 100g\n(20g)\nperserve\nEnergy (kcal)\n550\n110\n5.5\nProtein (g)\n14.2\n2.8\nCarbohydrate (g)\n45.6\n9.1\n- Total Sugars (g)\n0.5\n2.4\n8\n- Added Sugars(g)\n2.3\n0.5\n0.9\nTotal Fat (g)\n35.2\n10.5\n7.0\n-Trans fat\" (g)\n0.02\n0.1\n1.0\n-Saturatedfat(g)\n11.5\n2.3\n10.5\nSodium (mg)\n878.9\n175.8\n8.8\n*Other than naturally occurring trans fat\nfssaí\nLic.No.10012031000312\n901725\n8\n000158",
+  "raw_ocr": [
+    {
+      "text": "INGREDIENTS: REFINED PALMOLEIN, BENGAL GRAM (21.5%),",
+      "confidence": 0.9906,
+      "box": [
+        396.0,
+        117.0,
+        896.0,
+        141.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PEANUT (15.9%), LENTIL (13.8%), BESAN, FLAKED RICE (4.8%),",
+      "confidence": 0.9629,
+      "box": [
+        396.0,
+        145.0,
+        897.0,
+        169.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SEASONING (#SPICES AND CONDIMENTS,IODIZED SALT, BLACK",
+      "confidence": 0.9857,
+      "box": [
+        396.0,
+        171.0,
+        900.0,
+        195.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SALT, NATURAL FLAVOURS AND NATURAL FLAVOURING",
+      "confidence": 0.9931,
+      "box": [
+        396.0,
+        200.0,
+        899.0,
+        224.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SUBSTANCES, DEHYDRATEDKACHRI, DEHYDRATED YELLOW",
+      "confidence": 0.9807,
+      "box": [
+        396.0,
+        227.0,
+        899.0,
+        251.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "CHILLI AND NATURE IDENTICAL FLAVOURING SUBSTANCES)",
+      "confidence": 0.9857,
+      "box": [
+        396.0,
+        254.0,
+        897.0,
+        276.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "STARCH, RICE FLOUR, IODIZEDSALT, TURMERIC POWDER,",
+      "confidence": 0.9746,
+      "box": [
+        396.0,
+        281.0,
+        897.0,
+        305.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SPINACH POWDER AND COLOURS [INS 100(i), INS 133].",
+      "confidence": 0.9789,
+      "box": [
+        395.0,
+        309.0,
+        831.0,
+        333.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "#USED AS FLAVOURING AGENTS.",
+      "confidence": 0.992,
+      "box": [
+        396.0,
+        332.0,
+        655.0,
+        361.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "CONTAINS WHEAT, NUT MAY CONTAINS MILK, SOY",
+      "confidence": 0.9672,
+      "box": [
+        406.0,
+        375.0,
+        844.0,
+        399.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PROPRIETARY FOOD - NAMKEEN (MIXTURES) - 15.1",
+      "confidence": 0.9563,
+      "box": [
+        399.0,
+        454.0,
+        863.0,
+        481.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "NUTRITIONAL INFORMATION (Approx. Values)",
+      "confidence": 0.99,
+      "box": [
+        437.0,
+        498.0,
+        866.0,
+        528.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "%RDA",
+      "confidence": 0.9859,
+      "box": [
+        828.0,
+        532.0,
+        884.0,
+        558.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per Serve",
+      "confidence": 0.9516,
+      "box": [
+        713.0,
+        533.0,
+        802.0,
+        558.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per 100g",
+      "confidence": 0.9866,
+      "box": [
+        604.0,
+        543.0,
+        689.0,
+        576.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "(20g)",
+      "confidence": 0.9999,
+      "box": [
+        732.0,
+        554.0,
+        787.0,
+        585.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "perserve",
+      "confidence": 0.9996,
+      "box": [
+        816.0,
+        558.0,
+        899.0,
+        583.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Energy (kcal)",
+      "confidence": 0.9922,
+      "box": [
+        406.0,
+        584.0,
+        518.0,
+        612.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "550",
+      "confidence": 0.9997,
+      "box": [
+        626.0,
+        585.0,
+        667.0,
+        612.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "110",
+      "confidence": 1.0,
+      "box": [
+        740.0,
+        586.0,
+        780.0,
+        612.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "5.5",
+      "confidence": 1.0,
+      "box": [
+        839.0,
+        586.0,
+        877.0,
+        613.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Protein (g)",
+      "confidence": 0.9833,
+      "box": [
+        406.0,
+        612.0,
+        501.0,
+        641.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14.2",
+      "confidence": 0.9999,
+      "box": [
+        623.0,
+        614.0,
+        670.0,
+        640.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2.8",
+      "confidence": 1.0,
+      "box": [
+        742.0,
+        614.0,
+        777.0,
+        639.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Carbohydrate (g)",
+      "confidence": 0.9897,
+      "box": [
+        407.0,
+        640.0,
+        548.0,
+        668.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "45.6",
+      "confidence": 1.0,
+      "box": [
+        622.0,
+        642.0,
+        671.0,
+        669.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "9.1",
+      "confidence": 1.0,
+      "box": [
+        742.0,
+        643.0,
+        776.0,
+        668.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "- Total Sugars (g)",
+      "confidence": 0.9422,
+      "box": [
+        417.0,
+        669.0,
+        560.0,
+        697.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.5",
+      "confidence": 1.0,
+      "box": [
+        742.0,
+        671.0,
+        777.0,
+        696.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2.4",
+      "confidence": 1.0,
+      "box": [
+        628.0,
+        672.0,
+        664.0,
+        696.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8",
+      "confidence": 0.724,
+      "box": [
+        853.0,
+        681.0,
+        863.0,
+        691.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "- Added Sugars(g)",
+      "confidence": 0.9605,
+      "box": [
+        422.0,
+        694.0,
+        579.0,
+        727.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2.3",
+      "confidence": 1.0,
+      "box": [
+        628.0,
+        700.0,
+        664.0,
+        725.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.5",
+      "confidence": 1.0,
+      "box": [
+        742.0,
+        700.0,
+        777.0,
+        725.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.9",
+      "confidence": 1.0,
+      "box": [
+        840.0,
+        700.0,
+        876.0,
+        725.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Fat (g)",
+      "confidence": 0.9808,
+      "box": [
+        405.0,
+        724.0,
+        510.0,
+        754.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "35.2",
+      "confidence": 1.0,
+      "box": [
+        623.0,
+        728.0,
+        670.0,
+        754.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "10.5",
+      "confidence": 1.0,
+      "box": [
+        835.0,
+        728.0,
+        881.0,
+        754.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "7.0",
+      "confidence": 1.0,
+      "box": [
+        742.0,
+        729.0,
+        777.0,
+        753.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "-Trans fat\" (g)",
+      "confidence": 0.9447,
+      "box": [
+        417.0,
+        754.0,
+        544.0,
+        782.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.02",
+      "confidence": 1.0,
+      "box": [
+        736.0,
+        756.0,
+        782.0,
+        783.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.1",
+      "confidence": 1.0,
+      "box": [
+        628.0,
+        757.0,
+        664.0,
+        782.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1.0",
+      "confidence": 1.0,
+      "box": [
+        840.0,
+        757.0,
+        876.0,
+        782.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "-Saturatedfat(g)",
+      "confidence": 0.9922,
+      "box": [
+        418.0,
+        783.0,
+        569.0,
+        810.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "11.5",
+      "confidence": 0.9999,
+      "box": [
+        623.0,
+        784.0,
+        671.0,
+        810.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2.3",
+      "confidence": 1.0,
+      "box": [
+        742.0,
+        785.0,
+        777.0,
+        809.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "10.5",
+      "confidence": 1.0,
+      "box": [
+        835.0,
+        785.0,
+        881.0,
+        810.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Sodium (mg)",
+      "confidence": 0.9959,
+      "box": [
+        405.0,
+        808.0,
+        518.0,
+        839.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "878.9",
+      "confidence": 0.9882,
+      "box": [
+        617.0,
+        812.0,
+        675.0,
+        838.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "175.8",
+      "confidence": 1.0,
+      "box": [
+        732.0,
+        812.0,
+        789.0,
+        838.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8.8",
+      "confidence": 1.0,
+      "box": [
+        840.0,
+        813.0,
+        876.0,
+        838.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "*Other than naturally occurring trans fat",
+      "confidence": 0.9923,
+      "box": [
+        410.0,
+        847.0,
+        747.0,
+        874.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "fssaí",
+      "confidence": 0.8858,
+      "box": [
+        595.0,
+        937.0,
+        719.0,
+        1006.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Lic.No.10012031000312",
+      "confidence": 1.0,
+      "box": [
+        397.0,
+        1007.0,
+        909.0,
+        1054.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "901725",
+      "confidence": 1.0,
+      "box": [
+        483.0,
+        1241.0,
+        635.0,
+        1287.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8",
+      "confidence": 1.0,
+      "box": [
+        409.0,
+        1242.0,
+        444.0,
+        1285.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "000158",
+      "confidence": 1.0,
+      "box": [
+        712.0,
+        1242.0,
+        862.0,
+        1288.0
+      ],
+      "source": "base"
+    }
+  ],
+  "elapsed_seconds": 23.81
+}

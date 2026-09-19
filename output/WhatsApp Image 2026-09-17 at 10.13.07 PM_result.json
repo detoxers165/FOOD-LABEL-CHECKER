@@ -1,0 +1,530 @@
+{
+  "success": true,
+  "source_image": "C:\\Users\\acer\\Downloads\\WhatsApp Image 2026-09-17 at 10.13.07 PM.jpeg",
+  "quality": {
+    "ocr_regions": 36,
+    "visual_rows": 11,
+    "mean_confidence": 0.877,
+    "low_confidence_regions": 5,
+    "fields_found": 0,
+    "median_text_height_px": 51.5,
+    "warnings": [
+      "No labelled fields matched. If the label is not in English, pass --lang (e.g. --lang devanagari)."
+    ]
+  },
+  "preprocessing": {
+    "original_size": [
+      1507,
+      782
+    ],
+    "passes": [
+      {
+        "name": "base",
+        "regions": 36,
+        "score": 252.3
+      }
+    ],
+    "rotation_applied": 90,
+    "resize_scale": 1.0,
+    "deskew_angle": 0.0,
+    "median_text_height": 51.5
+  },
+  "product_information": {},
+  "sections": {
+    "nutrition": {
+      "heading": "NUTRITIONAL FACTS",
+      "content": [
+        "TOTAL FAT (g)",
+        "PROTEIN(g)",
+        "CARBOHYDRATE ()",
+        "ENER(Kca)",
+        "ADDED SUGARS (g)",
+        "(APPRI ALU",
+        "TOTAL SUGARS (G)",
+        "0",
+        "100ml",
+        "14",
+        "95",
+        "ROA'PESERVE",
+        "37.5",
+        "4.2",
+        "SODIUM (mg)",
+        "20.2",
+        "1.5",
+        "RDA:RECOMMENDEDDIETARALLOANCE",
+        "O",
+        "US MEANSUNIT SALE PRICE",
+        "on MNIG FEDOPANDAS PIUB"
+      ],
+      "text": "TOTAL FAT (g) PROTEIN(g) CARBOHYDRATE () ENER(Kca) ADDED SUGARS (g) (APPRI ALU TOTAL SUGARS (G) 0 100ml 14 95 ROA'PESERVE 37.5 4.2 SODIUM (mg) 20.2 1.5 RDA:RECOMMENDEDDIETARALLOANCE O US MEANSUNIT SALE PRICE on MNIG FEDOPANDAS PIUB",
+      "confidence": 0.994
+    }
+  },
+  "nutrition": {
+    "protein": {
+      "evidence": [
+        "PROTEIN(g)"
+      ],
+      "confidence": 0.896,
+      "values": {
+        "per_100g": "0"
+      },
+      "value": "0"
+    },
+    "carbohydrate": {
+      "evidence": [
+        "CARBOHYDRATE ()"
+      ],
+      "confidence": 0.988,
+      "values": {
+        "per_100g": "14"
+      },
+      "value": "14"
+    },
+    "total_sugars": {
+      "evidence": [
+        "TOTAL SUGARS (G)"
+      ],
+      "confidence": 0.938,
+      "values": {
+        "per_100g": "14"
+      },
+      "value": "14"
+    },
+    "added_sugars": {
+      "evidence": [
+        "ADDED SUGARS (g)"
+      ],
+      "confidence": 0.949,
+      "values": {
+        "per_100g": "37.5"
+      },
+      "value": "37.5"
+    },
+    "total_fat": {
+      "evidence": [
+        "TOTAL FAT (g)"
+      ],
+      "confidence": 0.985,
+      "values": {
+        "per_100g": "0"
+      },
+      "value": "0"
+    },
+    "sodium": {
+      "evidence": [
+        "SODIUM (mg)"
+      ],
+      "confidence": 0.963,
+      "values": {
+        "per_100g": "20.2"
+      },
+      "value": "20.2"
+    }
+  },
+  "contacts": {
+    "phones": [],
+    "emails": [],
+    "websites": []
+  },
+  "full_text": "P109\nFOR*MRPIofallae,SP\nBATCHNO.MFDANDUSEBY:SE\nSINGLE CONSUMPTION PACK\nSERINGSIZEERV\nNUTRITIONAL FACTS\nPER\n%CONRIUTINTO\n4\n(APPRI ALU\n100ml\nROA'PESERVE\n0413297308\nENER(Kca)\n95\n4.2\nPROTEIN(g)\n0\nCARBOHYDRATE ()\n14\nTOTAL SUGARS (G)\n14\nADDED SUGARS (g)\n37.5\nTOTAL FAT (g)\n0\n0\n9\nSODIUM (mg)\n20.2\n1.5\n8\nRDA:RECOMMENDEDDIETARALLOANCE\nO\nUS MEANSUNIT SALE PRICE\non MNIG FEDOPANDAS PIUB",
+  "raw_ocr": [
+    {
+      "text": "P109",
+      "confidence": 0.5421,
+      "box": [
+        88.0,
+        270.0,
+        515.0,
+        340.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "FOR*MRPIofallae,SP",
+      "confidence": 0.7227,
+      "box": [
+        103.0,
+        328.0,
+        534.0,
+        390.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "BATCHNO.MFDANDUSEBY:SE",
+      "confidence": 0.8101,
+      "box": [
+        106.0,
+        376.0,
+        550.0,
+        441.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SINGLE CONSUMPTION PACK",
+      "confidence": 0.9992,
+      "box": [
+        108.0,
+        430.0,
+        380.0,
+        490.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SERINGSIZEERV",
+      "confidence": 0.6828,
+      "box": [
+        104.0,
+        476.0,
+        504.0,
+        537.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "NUTRITIONAL FACTS",
+      "confidence": 0.9936,
+      "box": [
+        111.0,
+        534.0,
+        273.0,
+        583.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PER",
+      "confidence": 0.9704,
+      "box": [
+        310.0,
+        537.0,
+        352.0,
+        581.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "%CONRIUTINTO",
+      "confidence": 0.7176,
+      "box": [
+        367.0,
+        538.0,
+        505.0,
+        587.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4",
+      "confidence": 0.7573,
+      "box": [
+        607.0,
+        564.0,
+        624.0,
+        588.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "(APPRI ALU",
+      "confidence": 0.6986,
+      "box": [
+        111.0,
+        577.0,
+        294.0,
+        628.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "100ml",
+      "confidence": 0.9481,
+      "box": [
+        299.0,
+        580.0,
+        362.0,
+        629.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ROA'PESERVE",
+      "confidence": 0.7161,
+      "box": [
+        378.0,
+        582.0,
+        491.0,
+        634.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0413297308",
+      "confidence": 0.9999,
+      "box": [
+        600.0,
+        584.0,
+        639.0,
+        902.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ENER(Kca)",
+      "confidence": 0.8147,
+      "box": [
+        105.0,
+        627.0,
+        234.0,
+        682.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "95",
+      "confidence": 0.8402,
+      "box": [
+        305.0,
+        634.0,
+        346.0,
+        684.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "4.2",
+      "confidence": 0.9759,
+      "box": [
+        420.0,
+        640.0,
+        455.0,
+        684.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PROTEIN(g)",
+      "confidence": 0.8955,
+      "box": [
+        102.0,
+        672.0,
+        218.0,
+        733.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0",
+      "confidence": 0.9992,
+      "box": [
+        309.0,
+        688.0,
+        338.0,
+        729.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "CARBOHYDRATE ()",
+      "confidence": 0.9879,
+      "box": [
+        104.0,
+        718.0,
+        278.0,
+        781.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14",
+      "confidence": 1.0,
+      "box": [
+        303.0,
+        737.0,
+        337.0,
+        780.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "TOTAL SUGARS (G)",
+      "confidence": 0.9379,
+      "box": [
+        111.0,
+        763.0,
+        277.0,
+        832.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14",
+      "confidence": 1.0,
+      "box": [
+        300.0,
+        787.0,
+        335.0,
+        829.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ADDED SUGARS (g)",
+      "confidence": 0.9489,
+      "box": [
+        110.0,
+        812.0,
+        280.0,
+        881.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "37.5",
+      "confidence": 0.9998,
+      "box": [
+        409.0,
+        834.0,
+        457.0,
+        880.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "TOTAL FAT (g)",
+      "confidence": 0.9848,
+      "box": [
+        97.0,
+        857.0,
+        225.0,
+        927.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0",
+      "confidence": 0.9989,
+      "box": [
+        416.0,
+        883.0,
+        449.0,
+        926.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0",
+      "confidence": 0.9854,
+      "box": [
+        297.0,
+        885.0,
+        325.0,
+        929.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "9",
+      "confidence": 0.9624,
+      "box": [
+        611.0,
+        897.0,
+        632.0,
+        927.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SODIUM (mg)",
+      "confidence": 0.9627,
+      "box": [
+        93.0,
+        902.0,
+        222.0,
+        976.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "20.2",
+      "confidence": 0.9999,
+      "box": [
+        281.0,
+        930.0,
+        339.0,
+        982.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1.5",
+      "confidence": 0.9984,
+      "box": [
+        415.0,
+        933.0,
+        449.0,
+        975.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8",
+      "confidence": 0.9998,
+      "box": [
+        610.0,
+        944.0,
+        636.0,
+        973.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "RDA:RECOMMENDEDDIETARALLOANCE",
+      "confidence": 0.8211,
+      "box": [
+        87.0,
+        957.0,
+        512.0,
+        1049.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "O",
+      "confidence": 0.5091,
+      "box": [
+        54.0,
+        1143.0,
+        576.0,
+        1261.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "US MEANSUNIT SALE PRICE",
+      "confidence": 0.8322,
+      "box": [
+        67.0,
+        1202.0,
+        352.0,
+        1300.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "on MNIG FEDOPANDAS PIUB",
+      "confidence": 0.5559,
+      "box": [
+        431.0,
+        1344.0,
+        596.0,
+        1382.0
+      ],
+      "source": "base"
+    }
+  ],
+  "elapsed_seconds": 29.14
+}

@@ -1,0 +1,1536 @@
+{
+  "success": true,
+  "source_image": "D:\\product_compliance_model\\images\\image8.jpeg",
+  "quality": {
+    "ocr_regions": 111,
+    "visual_rows": 31,
+    "mean_confidence": 0.98,
+    "low_confidence_regions": 1,
+    "fields_found": 4,
+    "median_text_height_px": 30.0,
+    "warnings": []
+  },
+  "preprocessing": {
+    "original_size": [
+      1200,
+      1600
+    ],
+    "passes": [
+      {
+        "name": "base",
+        "regions": 112,
+        "score": 1618.6
+      }
+    ],
+    "rotation_applied": 0,
+    "resize_scale": 1.0,
+    "deskew_angle": 0.0,
+    "median_text_height": 30.0
+  },
+  "product_information": {
+    "batch_number": {
+      "value": "Per 100 g",
+      "label": "the last character of batch number where",
+      "match_score": 1.0,
+      "label_confidence": 1.0,
+      "label_box": [
+        309.0,
+        566.0,
+        680.0,
+        592.0
+      ],
+      "evidence": [
+        "the last character of batch number where",
+        "Per 100 g",
+        "PER PACK/ B. NO.:"
+      ],
+      "value_confidence": 0.972,
+      "value_box": [
+        472.0,
+        673.0,
+        544.0,
+        701.0
+      ],
+      "additional_values": [
+        "N4260826"
+      ]
+    },
+    "mrp": {
+      "value": "Rs 20",
+      "label": "*MRP Rs. 20/- (INCL. OF ALL TAXES)",
+      "match_score": 1.0,
+      "label_confidence": 0.994,
+      "label_box": [
+        306.0,
+        1076.0,
+        685.0,
+        1117.0
+      ],
+      "evidence": [
+        "*MRP Rs. 20/- (INCL. OF ALL TAXES)"
+      ]
+    },
+    "customer_care": {
+      "value": "writen",
+      "label": "For feedback or queries, writen",
+      "match_score": 0.947,
+      "label_confidence": 0.953,
+      "label_box": [
+        927.0,
+        1090.0,
+        1187.0,
+        1124.0
+      ],
+      "evidence": [
+        "For feedback or queries, writen",
+        "THE CONSUMER SERVICES"
+      ],
+      "additional_values": [
+        "P.O. BOX 27, DLF QUTAB ENCLAV"
+      ]
+    },
+    "manufacturing_date": {
+      "value": null,
+      "label": "and Manufacturing Date) to:",
+      "match_score": 1.0,
+      "label_confidence": 0.984,
+      "label_box": [
+        926.0,
+        1118.0,
+        1157.0,
+        1150.0
+      ],
+      "evidence": [
+        "and Manufacturing Date) to:"
+      ]
+    },
+    "expiry_date": {
+      "value": null,
+      "label": "MFD & USE BY:",
+      "match_score": 1.0,
+      "label_confidence": 0.997,
+      "label_box": [
+        294.0,
+        1302.0,
+        443.0,
+        1341.0
+      ],
+      "evidence": [
+        "MFD & USE BY:"
+      ]
+    },
+    "net_quantity": {
+      "value": null,
+      "label": "NET QTY:",
+      "match_score": 1.0,
+      "label_confidence": 1.0,
+      "label_box": [
+        293.0,
+        1361.0,
+        388.0,
+        1397.0
+      ],
+      "evidence": [
+        "NET QTY:"
+      ]
+    },
+    "fssai_license": {
+      "values": [
+        "10012022000339",
+        "10014064000435"
+      ],
+      "evidence": [
+        {
+          "value": "10012022000339",
+          "evidence": [
+            "Lic. No.",
+            "10012022000339"
+          ],
+          "confidence": 1.0
+        },
+        {
+          "value": "10014064000435",
+          "evidence": [
+            "fssai",
+            "Mkt. Lic. No. 10014064000435"
+          ],
+          "confidence": 0.987
+        }
+      ]
+    }
+  },
+  "sections": {
+    "allergen": {
+      "heading": "ALLERGEN ADVICE: Contains Milk",
+      "content": [
+        "Contains Milk"
+      ],
+      "text": "Contains Milk",
+      "confidence": 0.993
+    },
+    "nutrition": {
+      "heading": "NUTRITIONAL INFORMATIONA",
+      "content": [
+        "Nutrients",
+        "Per 100 g",
+        "Energy",
+        "536 kcal",
+        "Protein",
+        "6.8 g",
+        "Carbohydrate",
+        "54.2g",
+        "Total Sugars",
+        "1.2g",
+        "Added Sugars",
+        "0.3 g",
+        "Total Fat",
+        "32.4 g",
+        "Saturated Fat",
+        "14.6g}",
+        "7.4 g#",
+        "OR"
+      ],
+      "text": "Nutrients Per 100 g Energy 536 kcal Protein 6.8 g Carbohydrate 54.2g Total Sugars 1.2g Added Sugars 0.3 g Total Fat 32.4 g Saturated Fat 14.6g} 7.4 g# OR",
+      "confidence": 0.978
+    }
+  },
+  "nutrition": {
+    "energy": {
+      "evidence": [
+        "Energy"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "536 kcal",
+        "rda": "5%"
+      },
+      "value": "536 kcal",
+      "basis": "per_100g"
+    },
+    "protein": {
+      "evidence": [
+        "Protein"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "6.8 g"
+      },
+      "value": "6.8 g",
+      "basis": "per_100g"
+    },
+    "carbohydrate": {
+      "evidence": [
+        "Carbohydrate"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "54.2g"
+      },
+      "value": "54.2g",
+      "basis": "per_100g"
+    },
+    "total_sugars": {
+      "evidence": [
+        "Total Sugars"
+      ],
+      "confidence": 0.999,
+      "values": {
+        "per_100g": "1.2g"
+      },
+      "value": "1.2g",
+      "basis": "per_100g"
+    },
+    "added_sugars": {
+      "evidence": [
+        "Added Sugars"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "0.3 g",
+        "rda": "0.1%"
+      },
+      "value": "0.3 g",
+      "basis": "per_100g"
+    },
+    "total_fat": {
+      "evidence": [
+        "Total Fat"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "32.4 g",
+        "rda": "10%"
+      },
+      "value": "32.4 g",
+      "basis": "per_100g"
+    },
+    "saturated_fat": {
+      "evidence": [
+        "Saturated Fat"
+      ],
+      "confidence": 0.994,
+      "values": {
+        "per_100g": "14.6g",
+        "rda": "13%"
+      },
+      "value": "14.6g",
+      "basis": "per_100g"
+    },
+    "trans_fat": {
+      "evidence": [
+        "Trans Fat"
+      ],
+      "confidence": 1.0,
+      "values": {
+        "per_100g": "0.1g",
+        "rda": "1%"
+      },
+      "value": "0.1g",
+      "basis": "per_100g"
+    },
+    "sodium": {
+      "evidence": [
+        "Sodium"
+      ],
+      "confidence": 0.973,
+      "values": {
+        "per_100g": "897 mg",
+        "rda": "9%"
+      },
+      "value": "897 mg",
+      "basis": "per_100g"
+    }
+  },
+  "contacts": {
+    "phones": [
+      "1800 22 4020"
+    ],
+    "emails": [],
+    "websites": []
+  },
+  "full_text": "PC00012063000110\nIndia Holdings Pvt. Ltd.,\nPepsico\nN2:\nLic. No.\n10012022000339\nlong time\nIndia Holdings Pvt. Ltd.,\nPepsiCo\nN3:\nN4:\nUncle ne\nM/s JDB\nJD:\nshunu kar\nto previous Uncle Chipps Plain Salted\nDidi ve\nAs compared\nUncle Chipps\nm e,\nflavour packs.\ngeographies.\nToh bhaiya\nand Condiments, lodised Salt, Black Salt, Flavour\nka'dil bola\n(Natural and Nature Identical Flavouring\nAaja\nSubstances), Acidity Regulators (296, 330, 334),\nmeri\nsweet behna\nSugar, Yeast Extract).\nMilkar gaaye antaksho\n*As flavouring agent.\nTo know the specific type of oil used and its\nka first gaana\nsaturated fat value, match the symbol or # with\nthe last character of batch number where\n\"Bole Mere Lips,\ndenotes Palmolein and # denotes Rice Bran Oil.\nI Love\nALLERGEN ADVICE: Contains Milk\nUncle Chipps!\nSERVE SIZE 20 g**\nNUTRITIONAL INFORMATIONA\nPer 100 g\n%RDA Per Serve\nNutrients\n536 kcal\n5%\nUncle Chipps and Cowboy Hat De\nEnergy\ntrademarks of PepsiCo India Holdin\n6.8 g\nProtein\n54.2g\nCarbohydrate\nFor details on PepsiCo\npartnership with farmen\n1.2g\nTotal Sugars\nvisit www.pepsicoindia\n0.1%\n0.3 g\nAdded Sugars\n10%\npepsic\n32.4 g\nTotal Fat\n13%\nSaturated Fat\n14.6g}\nOR\nOR\nMkt. by: PepsiCo India H\n7%#\n7.4 g#\nfssai\n1%\n0.1g\nTrans Fat\n897 mg\n9%\nSodium\nMkt. Lic. No. 10014064000435\nApproximate Values\n\"Pack <20 g is a single consumption pack.\nFor Mkt. Address, scan Barcode\nvia Smart Consumer App\n*MRP Rs. 20/- (INCL. OF ALL TAXES)\nFor feedback or queries, writen\nand Manufacturing Date) to:\nTHE CONSUMER SERVICES\nUNIT SALE PRICE:\nPEPSICO INDIA HOLDINGS PV\nP.O. BOX 27, DLF QUTAB ENCLAV\nRs. 0.54/- PER g\nNO. OF SERVES\n08:12\nGURUGRAM-122002, HARYANA,\n45\n2.7/N4260826\nPER PACK/ B. NO.:\nOR CALL US AT 1800 22 4020\n26/08/26 & 23/01/27\nAT CONSUMER.FEEDBACK@P\n53g(37g+16g)\nMFD & USE BY:\nUncle\nChipps\nNET QTY:\n8",
+  "raw_ocr": [
+    {
+      "text": "PC00012063000110",
+      "confidence": 0.9236,
+      "box": [
+        380.0,
+        54.0,
+        563.0,
+        78.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "India Holdings Pvt. Ltd.,",
+      "confidence": 0.9984,
+      "box": [
+        419.0,
+        72.0,
+        619.0,
+        97.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Pepsico",
+      "confidence": 0.9963,
+      "box": [
+        355.0,
+        76.0,
+        427.0,
+        95.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "N2:",
+      "confidence": 0.9988,
+      "box": [
+        326.0,
+        78.0,
+        356.0,
+        110.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Lic. No.",
+      "confidence": 0.9899,
+      "box": [
+        354.0,
+        87.0,
+        420.0,
+        118.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "10012022000339",
+      "confidence": 1.0,
+      "box": [
+        418.0,
+        87.0,
+        564.0,
+        115.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "long time",
+      "confidence": 0.9938,
+      "box": [
+        1082.0,
+        97.0,
+        1200.0,
+        161.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "India Holdings Pvt. Ltd.,",
+      "confidence": 0.9835,
+      "box": [
+        422.0,
+        104.0,
+        618.0,
+        140.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PepsiCo",
+      "confidence": 0.9999,
+      "box": [
+        354.0,
+        107.0,
+        426.0,
+        143.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "N3:",
+      "confidence": 0.9931,
+      "box": [
+        323.0,
+        118.0,
+        360.0,
+        153.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "N4:",
+      "confidence": 0.9994,
+      "box": [
+        329.0,
+        166.0,
+        360.0,
+        195.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Uncle ne",
+      "confidence": 0.8843,
+      "box": [
+        1034.0,
+        191.0,
+        1124.0,
+        241.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "M/s JDB",
+      "confidence": 0.9716,
+      "box": [
+        360.0,
+        193.0,
+        433.0,
+        232.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "JD:",
+      "confidence": 0.9987,
+      "box": [
+        332.0,
+        208.0,
+        366.0,
+        239.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "shunu kar",
+      "confidence": 0.8683,
+      "box": [
+        1039.0,
+        218.0,
+        1150.0,
+        265.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "to previous Uncle Chipps Plain Salted",
+      "confidence": 0.9878,
+      "box": [
+        418.0,
+        268.0,
+        744.0,
+        307.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Didi ve",
+      "confidence": 0.9896,
+      "box": [
+        1012.0,
+        270.0,
+        1086.0,
+        311.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "As compared",
+      "confidence": 0.9972,
+      "box": [
+        321.0,
+        274.0,
+        433.0,
+        316.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Uncle Chipps",
+      "confidence": 0.9625,
+      "box": [
+        949.0,
+        280.0,
+        1089.0,
+        338.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "m e,",
+      "confidence": 0.686,
+      "box": [
+        417.0,
+        290.0,
+        719.0,
+        331.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "flavour packs.",
+      "confidence": 0.9627,
+      "box": [
+        317.0,
+        298.0,
+        430.0,
+        337.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "geographies.",
+      "confidence": 0.9999,
+      "box": [
+        314.0,
+        321.0,
+        420.0,
+        363.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Toh bhaiya",
+      "confidence": 0.9745,
+      "box": [
+        1063.0,
+        375.0,
+        1167.0,
+        424.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "and Condiments, lodised Salt, Black Salt, Flavour",
+      "confidence": 0.996,
+      "box": [
+        310.0,
+        406.0,
+        742.0,
+        446.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ka'dil bola",
+      "confidence": 0.9745,
+      "box": [
+        1111.0,
+        407.0,
+        1200.0,
+        454.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "(Natural and Nature Identical Flavouring",
+      "confidence": 0.9997,
+      "box": [
+        312.0,
+        430.0,
+        655.0,
+        465.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Aaja",
+      "confidence": 0.9943,
+      "box": [
+        1118.0,
+        431.0,
+        1170.0,
+        465.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Substances), Acidity Regulators (296, 330, 334),",
+      "confidence": 0.9917,
+      "box": [
+        309.0,
+        448.0,
+        729.0,
+        488.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "meri",
+      "confidence": 0.999,
+      "box": [
+        1122.0,
+        453.0,
+        1177.0,
+        482.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "sweet behna",
+      "confidence": 0.9816,
+      "box": [
+        1081.0,
+        469.0,
+        1200.0,
+        511.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Sugar, Yeast Extract).",
+      "confidence": 0.9998,
+      "box": [
+        310.0,
+        478.0,
+        497.0,
+        505.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Milkar gaaye antaksho",
+      "confidence": 0.9579,
+      "box": [
+        982.0,
+        495.0,
+        1200.0,
+        547.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "*As flavouring agent.",
+      "confidence": 0.9874,
+      "box": [
+        310.0,
+        503.0,
+        489.0,
+        531.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "To know the specific type of oil used and its",
+      "confidence": 0.9954,
+      "box": [
+        309.0,
+        525.0,
+        695.0,
+        554.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ka first gaana",
+      "confidence": 0.9826,
+      "box": [
+        1032.0,
+        532.0,
+        1185.0,
+        573.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "saturated fat value, match the symbol or # with",
+      "confidence": 0.9879,
+      "box": [
+        308.0,
+        545.0,
+        728.0,
+        573.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "the last character of batch number where",
+      "confidence": 0.9998,
+      "box": [
+        309.0,
+        566.0,
+        680.0,
+        592.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "\"Bole Mere Lips,",
+      "confidence": 0.9974,
+      "box": [
+        978.0,
+        574.0,
+        1182.0,
+        604.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "denotes Palmolein and # denotes Rice Bran Oil.",
+      "confidence": 0.9998,
+      "box": [
+        308.0,
+        584.0,
+        725.0,
+        614.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "I Love",
+      "confidence": 0.9996,
+      "box": [
+        1016.0,
+        602.0,
+        1097.0,
+        628.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "ALLERGEN ADVICE: Contains Milk",
+      "confidence": 0.993,
+      "box": [
+        309.0,
+        609.0,
+        623.0,
+        638.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Uncle Chipps!",
+      "confidence": 0.9995,
+      "box": [
+        966.0,
+        626.0,
+        1116.0,
+        659.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "SERVE SIZE 20 g**",
+      "confidence": 0.9784,
+      "box": [
+        559.0,
+        639.0,
+        685.0,
+        668.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "NUTRITIONAL INFORMATIONA",
+      "confidence": 0.9782,
+      "box": [
+        313.0,
+        643.0,
+        507.0,
+        670.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Per 100 g",
+      "confidence": 0.9715,
+      "box": [
+        472.0,
+        673.0,
+        544.0,
+        701.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "%RDA Per Serve",
+      "confidence": 1.0,
+      "box": [
+        568.0,
+        675.0,
+        682.0,
+        697.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Nutrients",
+      "confidence": 1.0,
+      "box": [
+        315.0,
+        678.0,
+        374.0,
+        701.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "536 kcal",
+      "confidence": 0.9999,
+      "box": [
+        476.0,
+        702.0,
+        539.0,
+        728.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "5%",
+      "confidence": 1.0,
+      "box": [
+        608.0,
+        703.0,
+        640.0,
+        729.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Uncle Chipps and Cowboy Hat De",
+      "confidence": 0.9996,
+      "box": [
+        925.0,
+        704.0,
+        1185.0,
+        734.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Energy",
+      "confidence": 1.0,
+      "box": [
+        315.0,
+        707.0,
+        361.0,
+        731.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "trademarks of PepsiCo India Holdin",
+      "confidence": 0.9851,
+      "box": [
+        926.0,
+        732.0,
+        1186.0,
+        757.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "6.8 g",
+      "confidence": 0.9139,
+      "box": [
+        486.0,
+        733.0,
+        527.0,
+        758.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Protein",
+      "confidence": 1.0,
+      "box": [
+        315.0,
+        735.0,
+        360.0,
+        758.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "54.2g",
+      "confidence": 0.9993,
+      "box": [
+        482.0,
+        759.0,
+        532.0,
+        786.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Carbohydrate",
+      "confidence": 1.0,
+      "box": [
+        315.0,
+        762.0,
+        400.0,
+        788.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "For details on PepsiCo",
+      "confidence": 0.9994,
+      "box": [
+        1006.0,
+        765.0,
+        1180.0,
+        790.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "partnership with farmen",
+      "confidence": 0.9709,
+      "box": [
+        1010.0,
+        784.0,
+        1190.0,
+        812.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1.2g",
+      "confidence": 0.9993,
+      "box": [
+        488.0,
+        792.0,
+        528.0,
+        817.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Sugars",
+      "confidence": 0.999,
+      "box": [
+        330.0,
+        794.0,
+        408.0,
+        817.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "visit www.pepsicoindia",
+      "confidence": 0.9833,
+      "box": [
+        1012.0,
+        806.0,
+        1190.0,
+        833.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.1%",
+      "confidence": 1.0,
+      "box": [
+        604.0,
+        820.0,
+        646.0,
+        845.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.3 g",
+      "confidence": 0.9135,
+      "box": [
+        488.0,
+        821.0,
+        528.0,
+        846.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Added Sugars",
+      "confidence": 1.0,
+      "box": [
+        342.0,
+        822.0,
+        436.0,
+        847.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "10%",
+      "confidence": 1.0,
+      "box": [
+        607.0,
+        849.0,
+        644.0,
+        873.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "pepsic",
+      "confidence": 0.9969,
+      "box": [
+        1091.0,
+        849.0,
+        1188.0,
+        879.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "32.4 g",
+      "confidence": 0.9224,
+      "box": [
+        484.0,
+        850.0,
+        533.0,
+        874.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Total Fat",
+      "confidence": 0.9999,
+      "box": [
+        314.0,
+        852.0,
+        368.0,
+        875.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "13%",
+      "confidence": 0.9998,
+      "box": [
+        608.0,
+        875.0,
+        650.0,
+        900.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Saturated Fat",
+      "confidence": 0.9941,
+      "box": [
+        328.0,
+        877.0,
+        425.0,
+        902.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "14.6g}",
+      "confidence": 0.7447,
+      "box": [
+        485.0,
+        877.0,
+        540.0,
+        901.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "OR",
+      "confidence": 0.9996,
+      "box": [
+        612.0,
+        895.0,
+        638.0,
+        911.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "OR",
+      "confidence": 0.9999,
+      "box": [
+        492.0,
+        898.0,
+        518.0,
+        916.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Mkt. by: PepsiCo India H",
+      "confidence": 0.9917,
+      "box": [
+        928.0,
+        901.0,
+        1180.0,
+        936.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "7%#",
+      "confidence": 0.9485,
+      "box": [
+        611.0,
+        907.0,
+        644.0,
+        929.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "7.4 g#",
+      "confidence": 0.9725,
+      "box": [
+        489.0,
+        909.0,
+        533.0,
+        934.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "fssai",
+      "confidence": 0.9489,
+      "box": [
+        1005.0,
+        930.0,
+        1148.0,
+        1005.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "1%",
+      "confidence": 1.0,
+      "box": [
+        612.0,
+        941.0,
+        640.0,
+        964.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "0.1g",
+      "confidence": 0.9971,
+      "box": [
+        488.0,
+        942.0,
+        529.0,
+        967.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Trans Fat",
+      "confidence": 0.9999,
+      "box": [
+        326.0,
+        944.0,
+        389.0,
+        967.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "897 mg",
+      "confidence": 0.9974,
+      "box": [
+        478.0,
+        967.0,
+        538.0,
+        997.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "9%",
+      "confidence": 0.9999,
+      "box": [
+        610.0,
+        969.0,
+        641.0,
+        995.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Sodium",
+      "confidence": 0.9732,
+      "box": [
+        311.0,
+        972.0,
+        361.0,
+        996.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Mkt. Lic. No. 10014064000435",
+      "confidence": 0.9872,
+      "box": [
+        929.0,
+        998.0,
+        1196.0,
+        1029.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Approximate Values",
+      "confidence": 0.9998,
+      "box": [
+        315.0,
+        1000.0,
+        448.0,
+        1025.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "\"Pack <20 g is a single consumption pack.",
+      "confidence": 0.9916,
+      "box": [
+        302.0,
+        1032.0,
+        682.0,
+        1067.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "For Mkt. Address, scan Barcode",
+      "confidence": 0.9479,
+      "box": [
+        928.0,
+        1032.0,
+        1200.0,
+        1064.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "via Smart Consumer App",
+      "confidence": 0.9998,
+      "box": [
+        927.0,
+        1059.0,
+        1164.0,
+        1096.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "*MRP Rs. 20/- (INCL. OF ALL TAXES)",
+      "confidence": 0.9939,
+      "box": [
+        306.0,
+        1076.0,
+        685.0,
+        1117.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "For feedback or queries, writen",
+      "confidence": 0.9533,
+      "box": [
+        927.0,
+        1090.0,
+        1187.0,
+        1124.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "and Manufacturing Date) to:",
+      "confidence": 0.9836,
+      "box": [
+        926.0,
+        1118.0,
+        1157.0,
+        1150.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "THE CONSUMER SERVICES",
+      "confidence": 0.9649,
+      "box": [
+        923.0,
+        1137.0,
+        1200.0,
+        1185.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "UNIT SALE PRICE:",
+      "confidence": 0.9874,
+      "box": [
+        295.0,
+        1152.0,
+        468.0,
+        1189.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PEPSICO INDIA HOLDINGS PV",
+      "confidence": 0.991,
+      "box": [
+        924.0,
+        1172.0,
+        1200.0,
+        1210.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "P.O. BOX 27, DLF QUTAB ENCLAV",
+      "confidence": 0.9359,
+      "box": [
+        920.0,
+        1200.0,
+        1200.0,
+        1239.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Rs. 0.54/- PER g",
+      "confidence": 0.9819,
+      "box": [
+        490.0,
+        1207.0,
+        637.0,
+        1240.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "NO. OF SERVES",
+      "confidence": 0.9966,
+      "box": [
+        293.0,
+        1212.0,
+        442.0,
+        1250.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "08:12",
+      "confidence": 0.9999,
+      "box": [
+        656.0,
+        1221.0,
+        679.0,
+        1272.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "GURUGRAM-122002, HARYANA,",
+      "confidence": 0.9894,
+      "box": [
+        916.0,
+        1222.0,
+        1200.0,
+        1270.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "45",
+      "confidence": 1.0,
+      "box": [
+        639.0,
+        1228.0,
+        659.0,
+        1259.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "2.7/N4260826",
+      "confidence": 0.9935,
+      "box": [
+        489.0,
+        1233.0,
+        618.0,
+        1261.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "PER PACK/ B. NO.:",
+      "confidence": 0.9732,
+      "box": [
+        293.0,
+        1242.0,
+        471.0,
+        1282.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "OR CALL US AT 1800 22 4020",
+      "confidence": 0.9911,
+      "box": [
+        914.0,
+        1247.0,
+        1200.0,
+        1296.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "26/08/26 & 23/01/27",
+      "confidence": 0.995,
+      "box": [
+        491.0,
+        1257.0,
+        642.0,
+        1286.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "AT CONSUMER.FEEDBACK@P",
+      "confidence": 0.9992,
+      "box": [
+        912.0,
+        1270.0,
+        1200.0,
+        1324.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "53g(37g+16g)",
+      "confidence": 0.9952,
+      "box": [
+        489.0,
+        1291.0,
+        599.0,
+        1332.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "MFD & USE BY:",
+      "confidence": 0.9973,
+      "box": [
+        294.0,
+        1302.0,
+        443.0,
+        1341.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Uncle",
+      "confidence": 0.9976,
+      "box": [
+        1066.0,
+        1317.0,
+        1169.0,
+        1352.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "Chipps",
+      "confidence": 0.9992,
+      "box": [
+        1054.0,
+        1335.0,
+        1173.0,
+        1377.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "NET QTY:",
+      "confidence": 0.9999,
+      "box": [
+        293.0,
+        1361.0,
+        388.0,
+        1397.0
+      ],
+      "source": "base"
+    },
+    {
+      "text": "8",
+      "confidence": 0.9997,
+      "box": [
+        1006.0,
+        1431.0,
+        1021.0,
+        1447.0
+      ],
+      "source": "base"
+    }
+  ],
+  "elapsed_seconds": 31.08
+}

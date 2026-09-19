@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -12,3 +13,7 @@ venv/
 # link to the official source in SOURCES.md instead. If the team wants
 # them versioned for provenance, use Git LFS rather than plain git.
 *.pdf
+=======
+
+model/
+>>>>>>> origin/main

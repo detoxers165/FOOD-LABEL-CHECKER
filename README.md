@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FSSAI Label Checker
 
 A regulation engine that checks a food product's ingredients, additives and
@@ -74,3 +75,6 @@ should always be traceable to a specific regulation section — see
 `source` on any existing rule for the expected format. Changes to this
 file should go through the same PR review as code changes; see
 CONTRIBUTING.md.
+=======
+# FOOD-LABEL-CHECKER
+>>>>>>> origin/main
