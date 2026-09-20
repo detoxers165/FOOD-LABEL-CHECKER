@@ -23,8 +23,13 @@ dist/
 dist-ssr/
 *.local
 .env*.local
+.env
+.env.*
+!.env.example
 
 # OCR output & temporary logs
 output/
 *.log
+notes.txt*
+summmary-supp.txt
 

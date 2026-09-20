@@ -1,15 +1,26 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import LabelUploader from './components/LabelUploader';
 import AnalysisDashboard from './components/AnalysisDashboard';
 import { scanLabelImage, analyzeLabelText, checkBackendHealth } from './services/api';
+import { useAuth } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import LoginPage from './pages/LoginPage';
+import LandingPage from './pages/LandingPage';
 
-export default function App() {
+function MainAppContent() {
   const [backendStatus, setBackendStatus] = useState({ online: false, checking: true });
   const [useMockMode, setUseMockMode] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(null);
   const [analysisResult, setAnalysisResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [editName, setEditName] = useState('');
+  const [savingProfile, setSavingProfile] = useState(false);
+  const [profileSuccess, setProfileSuccess] = useState(false);
+  
+  const { user, logout, updateDisplayName } = useAuth();
 
   // Check backend health on initial load and setup interval poll
   const verifyBackend = useCallback(() => {
@@ -26,6 +37,12 @@ export default function App() {
     const interval = setInterval(verifyBackend, 10000);
     return () => clearInterval(interval);
   }, [verifyBackend]);
+
+  useEffect(() => {
+    if (user?.display_name) {
+      setEditName(user.display_name);
+    }
+  }, [user]);
 
   const handleAnalyzeImage = useCallback(async (file) => {
     setIsScanning(true);
@@ -83,12 +100,33 @@ export default function App() {
     setIsScanning(false);
   }, []);
 
+  const handleSaveProfile = async (e) => {
+    e.preventDefault();
+    if (!editName.trim()) return;
+    setSavingProfile(true);
+    setProfileSuccess(false);
+    try {
+      await updateDisplayName(editName.trim());
+      setProfileSuccess(true);
+      setTimeout(() => {
+        setProfileSuccess(false);
+        setShowProfileModal(false);
+      }, 1200);
+    } catch (err) {
+      console.error("Profile save error:", err);
+    } finally {
+      setSavingProfile(false);
+    }
+  };
+
+  const userInitial = (user?.display_name || user?.email || 'U')[0].toUpperCase();
+
   return (
     <div className="app-layout">
       {/* 1. Header / Navigation */}
       <header className="navbar">
         <div className="navbar__container">
-          <div className="navbar__brand">
+          <Link to="/" className="navbar__brand" title="Back to Home">
             <div className="navbar__logo">
               <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#nav-grad)" />
@@ -105,7 +143,7 @@ export default function App() {
               <h1 className="navbar__title">LabelGuard</h1>
               <span className="navbar__subtitle">FSSAI & Legal Metrology Inspector</span>
             </div>
-          </div>
+          </Link>
 
           <div className="navbar__controls">
             {/* Mode Switcher */}
@@ -135,9 +173,115 @@ export default function App() {
                     : 'Backend Offline'}
               </span>
             </button>
+
+            {/* User Account Controls */}
+            <div className="navbar__user">
+              <button 
+                type="button"
+                className="user-profile-trigger"
+                onClick={() => setShowProfileModal(true)}
+                title="View & Edit Account Details"
+              >
+                <span className="user-avatar">{userInitial}</span>
+                <span className="navbar__user-name">{user?.display_name || user?.email?.split('@')[0]}</span>
+              </button>
+
+              <button 
+                onClick={logout} 
+                className="auth-btn auth-btn--outline-light"
+                title="Sign out of your session"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </header>
+
+      {/* User Profile Modal */}
+      {showProfileModal && (
+        <div className="modal-backdrop" onClick={() => setShowProfileModal(false)}>
+          <div className="profile-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3 className="modal-title">Account & Inspector Profile</h3>
+              <button 
+                type="button" 
+                className="modal-close-btn"
+                onClick={() => setShowProfileModal(false)}
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="modal-body">
+              <div className="user-summary">
+                <div className="user-avatar-large">{userInitial}</div>
+                <div className="user-summary-text">
+                  <span className="user-email-tag">{user?.email}</span>
+                  <span className="user-role-badge">
+                    <span className="verified-badge">✓</span> Verified Inspector
+                  </span>
+                </div>
+              </div>
+
+              <form onSubmit={handleSaveProfile} className="profile-edit-form">
+                <div className="form-group">
+                  <label htmlFor="inspectorName">Display Name / Title</label>
+                  <input
+                    id="inspectorName"
+                    type="text"
+                    className="form-input"
+                    placeholder="e.g. Chief Quality Auditor"
+                    value={editName}
+                    onChange={(e) => setEditName(e.target.value)}
+                  />
+                </div>
+
+                <div className="profile-details-grid">
+                  <div className="detail-item">
+                    <span className="detail-item__label">Account ID</span>
+                    <span className="detail-item__value font-mono">{user?.id || '—'}</span>
+                  </div>
+                  <div className="detail-item">
+                    <span className="detail-item__label">Status</span>
+                    <span className="detail-item__value">{user?.is_active ? 'Active' : 'Suspended'}</span>
+                  </div>
+                  <div className="detail-item">
+                    <span className="detail-item__label">Last Login</span>
+                    <span className="detail-item__value">
+                      {user?.last_login_at ? new Date(user.last_login_at).toLocaleString() : 'Just now'}
+                    </span>
+                  </div>
+                </div>
+
+                {profileSuccess && (
+                  <div className="profile-success-msg">
+                    ✓ Profile updated successfully!
+                  </div>
+                )}
+
+                <div className="modal-actions">
+                  <button 
+                    type="button" 
+                    className="auth-btn auth-btn--outline-light"
+                    onClick={() => setShowProfileModal(false)}
+                  >
+                    Close
+                  </button>
+                  <button 
+                    type="submit" 
+                    className="auth-btn auth-btn--primary"
+                    disabled={savingProfile || !editName.trim()}
+                    style={{ width: 'auto' }}
+                  >
+                    {savingProfile ? 'Saving...' : 'Save Profile'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 2. Main Content Area */}
       <main className="main-content">
@@ -232,5 +376,32 @@ export default function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<LoginPage />} />
+      <Route 
+        path="/dashboard" 
+        element={
+          <ProtectedRoute>
+            <MainAppContent />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/app" 
+        element={
+          <ProtectedRoute>
+            <MainAppContent />
+          </ProtectedRoute>
+        } 
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
