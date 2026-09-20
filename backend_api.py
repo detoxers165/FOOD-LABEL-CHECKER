@@ -29,9 +29,17 @@ os.environ.setdefault("FLAGS_enable_pir_api", "0")
 os.environ.setdefault("GLOG_minloglevel", "2")
 os.environ.setdefault("DISABLE_MODEL_SOURCE_CHECK", "True")
 
-from fastapi import FastAPI, File, UploadFile, HTTPException, Form
+from fastapi import FastAPI, File, UploadFile, HTTPException, Form, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from contextlib import asynccontextmanager
+
+from config import get_settings
+from database.mongodb import MongoDatabase
+from database.indexes import ensure_indexes
+from routes.auth_routes import auth_router
+from errors import AppError
+from response import error_response
 
 # Import project engines
 BASE_DIR = Path(__file__).resolve().parent
@@ -133,19 +141,45 @@ COMMON_ALLERGENS = [
 # ---------------------------------------------------------------------------
 # FastAPI Application & Models
 # ---------------------------------------------------------------------------
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    settings = get_settings()
+    mongo = MongoDatabase(settings.mongodb_uri, settings.mongodb_database)
+    await mongo.connect()
+    
+    app.state.db = mongo.get_database()
+    await ensure_indexes(app.state.db)
+    
+    yield
+    
+    await mongo.disconnect()
+
 app = FastAPI(
     title="Food Label Checker API",
     description="FSSAI & Legal Metrology Compliance Inspection Service",
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=get_settings().cors_origins or ["http://localhost:5173", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(auth_router)
+
+
+@app.exception_handler(AppError)
+async def app_error_handler(request: Request, exc: AppError):
+    return error_response(
+        exc.code,
+        exc.message,
+        status_code=exc.status_code,
+        details=exc.details,
+    )
 
 # Global lazy OCR Engine instance
 _ocr_engine = None
