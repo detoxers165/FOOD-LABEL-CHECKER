@@ -75,17 +75,13 @@ pytest tests/ -v
 
 ## Known gaps (see CONTRIBUTING.md for the full backlog)
 
-- OCR is not wired in (`label_pipeline.ocr_extract_text` is a stub).
-- Category resolution (product name → FSSAI category code) is not wired
-  in (`label_pipeline.resolve_category` is a stub).
-- The insecticide residue table (FSS Contaminants Regulations, 2011,
-  §2.3.1 — ~149 rows) has not been digitized yet.
-- The Food Additives Regulations (Appendix A permission/limit tables)
-  have not been digitized yet — only a handful of illustrative
-  `ADDITIVE_PERMISSION` rows exist so far.
-- Several qualitative (non-numeric) prohibitions from the Prohibition
-  Regulations aren't encoded — the engine doesn't yet have a rule type
-  for "must contain X" mandates or ingredient-adulteration checks.
+- OCR extraction is currently integrated into the end-to-end analysis pipeline, but OCR accuracy can vary depending on image quality, packaging layout, text size, and image orientation.
+Automatic product-category resolution is currently limited and may require additional validation for products whose category cannot be confidently determined from the label.
+The insecticide residue table from the FSSAI Contaminants Regulations, 2011 has not yet been fully digitized.
+The Food Additives Regulations permission/limit tables are currently only partially digitized; additional additive-category combinations need to be incorporated.
+Several qualitative prohibitions and ingredient-adulteration checks are not yet represented in the programmable rule engine.
+Some regulatory checks may return CANNOT_DETERMINE or REQUIRES_COLUMN_VALIDATION when the uploaded label does not provide sufficient information.
+The system is intended as an automated pre-screening and informational tool, not as a replacement for official regulatory assessment or laboratory testing.
 
 ## Working on the rulebook
 
